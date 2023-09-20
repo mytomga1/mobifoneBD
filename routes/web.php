@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 | now create something great
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
 Route::get('/',[\App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
-Route::get('/admin/dashboard', [\App\Http\Controllers\AdminController::class, 'dashboard']);
-Route::resource('photo', \App\Http\Controllers\PhotoController::class);
+Route::prefix('admin')->name('admin.')->group(function (){
+
+    Route::get('/dashboard', [\App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');
+    Route::resource('product', \App\Http\Controllers\ProductController::class);
+    Route::resource('banner', \App\Http\Controllers\BannerController::class);
+});

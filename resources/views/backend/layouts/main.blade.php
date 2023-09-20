@@ -58,10 +58,13 @@
             </div>
             <!-- End ===============================content========================================================================================== -->
 
-
             <!-- footer    ========================================================================================================================== -->
             @include('backend.layouts.footer')
             <!-- End footer ========================================================================================================================= -->
+
+            <!-- control-sidebar    ================================================================================================================= -->
+            @include('backend.layouts.control-sidebar')
+            <!-- End control-sidebar ================================================================================================================ -->
 
         </div>
         <!-- ./wrapper -->
@@ -74,6 +77,12 @@
     <script>
         $.widget.bridge('uibutton', $.ui.button);
     </script>
+    <!-- CKEditor 4 -->
+    <script src="//cdn.ckeditor.com/4.19.0/full/ckeditor.js"></script>
+    <script type="text/javascript">
+      CKEDITOR.replace( 'description');
+    </script>
+
     <!-- Bootstrap 3.3.7 -->
     <script src="{{asset('backend')}}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Morris.js charts -->
@@ -101,5 +110,13 @@
     <script src="{{asset('backend')}}/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{asset('backend')}}/dist/js/pages/dashboard.js"></script>
+
+    <!-- notify -->
+    <script src="{{asset('backend')}}/js/notify.min.js"></script>
+    <!-- sweetalert2 -->
+     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @yield('js')
+
     </body>
 </html>
