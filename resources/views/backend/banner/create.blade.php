@@ -68,8 +68,8 @@
                             <div class="form-group">
                                 <label for="target">Chọn Target: </label>
                                 <select id="target" name="target" class="form-control">
-                                    <option value="1">_blank</option>
                                     <option value="0">_self</option>
+                                    <option value="1">_blank</option>
                                 </select>
                             </div>
 

@@ -1,11 +1,10 @@
 @extends('backend.layouts.main')
+
 {{--Create: Lê Thành Trung--}}
 {{--Date : 19/9/2023--}}
-{{--Trang Quản lý danh sách banner--}}
-{{--nhiệm vụ tiếp là làm trang edit sau đó làm tiếp chức năng delete--}}
+{{--Trang quản lý banner--}}
 
 @section('content')
-
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
@@ -22,33 +21,32 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-
             <!-- Bảng ver.2 -->
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header with-border">
 {{--                        @if(\Auth::user()->role_id == 1) <!-- kiểm tra tài khoản có phải là admin ko, nếu là admin thì show combobox filter -->--}}
-{{--                        <div class="form-group" style="width: 150px;float: left;margin: 0">--}}
-{{--                            <select class="form-control" id="filter_type" name="filter_type">--}}
-{{--                                <option {{ $filter_type == 1 ? 'selected' : '' }} value="1">Tất cả</option>--}}
-{{--                                <option {{ $filter_type == 2 ? 'selected' : '' }} value="2">Đang Sử Dụng</option>--}}
-{{--                                <option {{ $filter_type == 3 ? 'selected' : '' }} value="3">Thùng rác</option>--}}
-{{--                            </select>--}}
-{{--                        </div>--}}
+                        <div class="form-group" style="width: 150px;float: left;margin: 0">
+                            <select class="form-control" id="filter_type" name="filter_type">
+                                <option {{ $filter_type == 1 ? 'selected' : '' }} value="1">Tất cả</option>
+                                <option {{ $filter_type == 2 ? 'selected' : '' }} value="2">Đang Sử Dụng</option>
+                                <option {{ $filter_type == 3 ? 'selected' : '' }} value="3">Thùng rác</option>
+                            </select>
+                        </div>
 {{--                        @endif--}}
-                        <a href="{{route('admin.banner.create')}}" class="btn btn-primary pull-right"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                        <a href="{{ route('admin.banner.create') }}" class="btn btn-primary pull-right"><i class="fa fa-plus" aria-hidden="true"></i></a>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
-                                <tr>
-                                    <th scope="col">Id</th>
-                                    <th scope="col">Hình Ảnh</th>
-                                    <th scope="col">Tên</th>
-                                    <th scope="col">Loại</th>
-                                    <th scope="col">#</th>
-                                </tr>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Hình Ảnh</th>
+                                <th scope="col">Tên</th>
+                                <th scope="col">Loại</th>
+                                <th scope="col">#</th>
+                            </tr>
                             </thead>
                             <tbody class="table-group-divider table-divider-color">
                             @foreach($data as $key => $item)
@@ -83,8 +81,7 @@
                                     </td>
 
                                     <td class="action" >
-{{--                                    <a href="{{ route('admin.banner.edit', ['banner' => $item->id]) }}"><span title="Chỉnh sửa" type="button" class="btn btn-flat btn-primary"><i class="fa fa-edit"></i></span></a>--}}
-                                        <a href="{{route('admin.banner.edit',  ['banner' => $item->id]) }}"><span title="Chỉnh sửa" type="button" class="btn btn-flat btn-primary"><i class="fa fa-edit"></i></span></a>
+                                        <a href="{{ route('admin.banner.edit', ['banner' => $item->id]) }}"><span title="Chỉnh sửa" type="button" class="btn btn-flat btn-primary"><i class="fa fa-edit"></i></span></a>
                                         @if($item->deleted_at == null)
                                             <span  data-id="{{ $item->id }}" title="Xóa" class="btn btn-flat btn-danger deleteItem"><i class="fa fa-trash"></i></span>
                                             <span style="display:none;" data-id="{{ $item->id }}" title="Khôi phục" class="btn btn-flat btn-warning restoreItem"><i class="fa fa-refresh"></i></span>
@@ -107,4 +104,107 @@
         </div><!-- /.row -->
     </section>
     <!-- /.content -->
+@endsection
+
+@section('js')
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            //bắt sự kiện nút xoá
+            $('.deleteItem').click(function () {
+                var id = $(this).attr('data-id');
+                Swal.fire({
+                    title: 'Bạn có chắc muốn xóa ?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'OK'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url : '/admin/banner/'+id,
+                            type: 'DELETE',
+                            data: {},
+                            success: function (res) {
+                                if(res.status) {
+                                    $('.item-'+id).remove();
+
+                                    var filter_type = $('#filter_type').val();
+                                    window.location.href = "{{ route('admin.banner.index') }}?filter_type="+filter_type;
+                                } else {
+                                    Swal.fire(
+                                        'Thông báo !',
+                                        res.msg,
+                                        'error'
+                                    )
+                                }
+                            },
+                            error: function (res) {
+                            }
+                        });
+                    }
+                });
+            });
+
+            // bắt sự kiện nút khôi phục
+            $('.restoreItem').click(function () {
+                var id = $(this).attr('data-id');
+                Swal.fire({
+                    title: 'Bạn có muốn khôi phục ?',
+                    text: "Dữ liệu sẽ được khôi phục lại danh sách Banner",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'OK'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url : '/admin/banner/restore/'+id,
+                            type: 'POST',
+                            data: {},
+                            success: function (res) {
+                                if(res.status) {
+                                    Swal.fire(
+                                        'Thông báo !',
+                                        'Khôi phục thành công',
+                                        'success'
+                                    )
+
+                                    var filter_type = $('#filter_type').val();
+                                    window.location.href = "{{ route('admin.banner.index') }}?filter_type="+filter_type;
+                                } else {
+                                    Swal.fire(
+                                        'Thông báo !',
+                                        'Có lỗi xảy ra',
+                                        'error'
+                                    )
+                                }
+                            },
+                            error: function (res) {
+                            }
+                        });
+                    }
+                });
+            });
+
+            // bắt sự kiện combobox filter
+            $('#filter_type').change(function () {
+                var filter_type = $('#filter_type').val();
+                // sử dụng window.location.href để truyền dữ liệu filter và chuyển trang
+                window.location.href = "{{ route('admin.banner.index') }}?filter_type="+filter_type;
+            });
+
+            // bắt sự kiện filter table by colum and search
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging'      : true,
+                'lengthChange': false,
+                'searching'   : false,
+                'ordering'    : true,
+                'info'        : true,
+                'autoWidth'   : false
+            });
+        });
+    </script>
 @endsection

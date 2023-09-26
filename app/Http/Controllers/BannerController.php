@@ -18,13 +18,35 @@ class BannerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $params = $request->all();
+        $filter_type = $params['filter_type'] ?? 2;
 
-        // Cách 1 : lấy dữ liệu mới nhất và phân trang - mỗi trang 10 bản ghi
-        $data = Banner::latest()->get();
+        if ($filter_type == 1) {
+            $data = Banner::withTrashed()->latest()->get(); // show tất cả dữ liệu nếu $filter_type == 1
+            //$data = Banner::withTrashed()->latest()->paginate(10); // show tất cả dữ liệu nếu $filter_type == 1
+        } elseif ($filter_type == 2) {
+            $data = Banner::latest()->get(); // ko show dữ liệu những thằng bị softDelete nếu $filter_type == 2
+            //$data = Banner::latest()->paginate(10); // ko show dữ liệu những thằng bị softDelete nếu $filter_type == 2
+        } else {
+            $data = Banner::onlyTrashed()->latest()->get(); // chỉ show dữ liệu những thằng bị softDelete nếu $filter_type == 3
+            //$data = Banner::onlyTrashed()->latest()->paginate(10); // chỉ show dữ liệu những thằng bị softDelete nếu $filter_type == 3
 
-        return view('backend.banner.index', ['data'=>$data]);
+            $data = Banner::onlyTrashed()->latest()->get();
+        }
+
+        //Cách 2: Lấy dữ liệu phân trang - mỗi trang 10 bản ghi
+        //$data = Banner::paginate(10);
+
+        //kiểm tra dữ liệu
+        //dd($data);
+
+        //Cách 3: lấy toàn bộ dữ liệu
+        //$data = Banner::all(); // tương đương với câu lệnh SELECT * FORM Banners
+
+        // truyền dữ liệu sang view với 2 tham số 1 tên view và 2 là mảng dữ liệu truyền sang
+        return view('backend.banner.index', ['data' => $data, 'filter_type' => $filter_type]);
     }
 
     /**
@@ -193,6 +215,23 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Banner::destroy($id);
+
+        return response()->json([
+            'status' => true,
+            'msg' => 'Xóa thành công'
+        ]);
+    }
+
+    // hàm khôi phục dữ liệu khi bị softdelete
+    public function restore($id)
+    {
+        $Banner = Banner::onlyTrashed()->findOrFail($id);
+        $Banner->restore(); // truyền id đã bị xoá vào hàm khôi phục
+
+        return response()->json([
+            'status' => true,
+            'msg' => 'Khôi phục thành công'
+        ]);
     }
 }

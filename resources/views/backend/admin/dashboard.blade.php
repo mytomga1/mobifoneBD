@@ -17,81 +17,91 @@
     <section class="content">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-aqua">
-                    <div class="inner">
-                        <h3>150</h3>
+{{--            <div class="col-lg-3 col-xs-6">--}}
+{{--                <!-- small box -->--}}
+{{--                <div class="small-box bg-aqua">--}}
+{{--                    <div class="inner">--}}
+{{--                        <h3>150</h3>--}}
 
-                        <p>New Orders</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-bag"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-green">
-                    <div class="inner">
-                        <h3>53<sup style="font-size: 20px">%</sup></h3>
+{{--                        <p>Đơn đặt hàng</p>--}}
+{{--                    </div>--}}
+{{--                    <div class="icon">--}}
+{{--                        <i class="ion ion-bag"></i>--}}
+{{--                    </div>--}}
+{{--                    <a href="#" class="small-box-footer">Chi Tiết <i class="fa fa-arrow-circle-right"></i></a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <!-- ./col -->--}}
 
-                        <p>Bounce Rate</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-yellow">
-                    <div class="inner">
-                        <h3>44</h3>
-
-                        <p>User Registrations</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-person-add"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-            <!-- ./col -->
+            <!-- small box -->
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
                 <div class="small-box bg-red">
                     <div class="inner">
-                        <h3>65</h3>
+                        <h3>{{$numCategory}}</h3>
 
-                        <p>Unique Visitors</p>
+                        <p>Danh Mục</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-pie-graph"></i>
+                        <i class="fa fa-list"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{route('admin.category.index')}}" class="small-box-footer">
+                        Chi Tiết <i class="fa fa-arrow-circle-right"></i>
+                    </a>
                 </div>
-            </div>
-            <!-- ./col -->
+            </div><!-- ./col -->
+
+
+            <!-- small box -->
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
                 <div class="small-box bg-green">
                     <div class="inner">
-                        <h3>53<sup style="font-size: 20px">%</sup></h3>
+                        <h3>{{$numProduct}}</h3>
 
-                        <p>Bounce Rate</p>
+                        <p>Sản phẩm</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
+                        <i class="fa fa-mobile"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{route('admin.product.index')}}" class="small-box-footer">
+                        Chi Tiết <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div><!-- ./col -->
+
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3>{{$numArticle}}<sup style="font-size: 20px">%</sup></h3>
+
+                        <p>Bài viết</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-newspaper-o"></i>
+                    </div>
+                    <a href="{{route('admin.article.index')}}" class="small-box-footer">Chi Tiết <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
+
+            @if(\Auth::user()->role_id == 1)
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-yellow">
+                        <div class="inner">
+                            <h3>{{ $numUser }}</h3>
+
+                            <p>Accounts</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                        <a href="{{route('admin.user.index')}}" class="small-box-footer">Chi Tiết <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            @endif
         </div>
         <!-- /.row -->
         <!-- Main row -->
@@ -174,7 +184,7 @@
                         <!-- /.row -->
                     </div>
                 </div>
-                <!-- /.box -->
+                <!-- end Calendar -->
 
             </section>
             <!-- right col -->
@@ -183,5 +193,5 @@
 
     </section>
     <!-- /.content -->
-    <!-- End ===============================content========================================================================================== -->z`
+    <!-- End ===============================content========================================================================================== -->
 @endsection

@@ -57,8 +57,8 @@
                             <div class="form-group">
                                 <label for="target">Chọn Target : </label>
                                 <select id="target" name="target" class="form-control">
-                                    <option @if($model->target == 1) selected @endif value="1">_blank</option>
                                     <option @if($model->target == 0) selected @endif value="0">_self</option>
+                                    <option @if($model->target == 1) selected @endif value="1">_blank</option>
                                 </select>
                             </div>
 
