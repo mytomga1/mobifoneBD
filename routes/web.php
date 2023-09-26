@@ -22,9 +22,10 @@ Route::post('/admin/postLogin', [\App\Http\Controllers\AdminController::class, '
 Route::get('/admin/logout', [\App\Http\Controllers\AdminController::class, 'logout'])->name('admin.logout');
 
 
-Route::prefix('admin')->name('admin.')->group(function (){
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function (){// sử dụng hàm ->middleware('auth') giúp bảo vệ router với mục đích ngăn chặn các truy cập vào trang admin khi chưa đăng nhập
 
-    Route::get('/dashboard', [\App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');
+    Route::get('', [\App\Http\Controllers\AdminController::class, ('dashboard')])->name('dashboard');
+    //Route::get('/dashboard', [\App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');
 
     Route::resource('/article',\App\Http\Controllers\ArticleController::class);
     Route::post('article/restore/{article}', [\App\Http\Controllers\ArticleController::class, 'restore'])->name('article.restore');

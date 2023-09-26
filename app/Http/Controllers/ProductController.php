@@ -90,7 +90,6 @@ class ProductController extends Controller
             'price' => 'required|max:255',
             'sale' => 'required|max:255',
             'category_id' => 'required|max:255',
-            'brand_id' => 'required|max:255',
             'vendor_id' => 'required|max:255',
             'summary' => 'required',
             'description' => 'required',
@@ -102,7 +101,6 @@ class ProductController extends Controller
             'price' => 'Bạn cần phải nhập giá sản phẩm',
             'sale' => 'Bạn cần phải nhập giá khuyến mãi sản phẩm',
             'category_id' => 'Bạn cần phải chọn danh mục',
-            'brand_id' => 'Bạn cần phải chọn nhãn hiệu',
             'vendor_id' => 'Bạn cần phải chọn nhà cung cấp',
             'summary' => 'Bạn cần phải nhập tóm tắt sp',
             'description' => 'Bạn cần phải nhập mô tả chi tiết sp',
@@ -138,7 +136,7 @@ class ProductController extends Controller
         $product->sale = Str::remove(',', $request->input('sale'));
         $product->url = $request->input('url');
         $product->category_id = $request->input('category_id');
-        $product->brand_id = $request->input('brand_id');
+//        $product->brand_id = $request->input('brand_id');
         $product->vendor_id = $request->input('vendor_id');
 
 
@@ -164,7 +162,7 @@ class ProductController extends Controller
         $product->save();
 
         // sau khi thêm dữ liệu sản phẩm mới vào database thì đánh thêm index để tiện thể cho việc search nhanh hơn
-        Product::addAllToIndex();
+        //Product::addAllToIndex();
 
         //sau khi thêm dữ liệu vendors vào db thành công chuyển hướng về trang danh sách
         // hàm redirect() tương tự hàm header() dùng chuyễn hướng trang
@@ -218,7 +216,6 @@ class ProductController extends Controller
             'price' => 'required|max:255',
             'sale' => 'required|max:255',
             'category_id' => 'required|max:255',
-            'brand_id' => 'required|max:255',
             'vendor_id' => 'required|max:255',
             'summary' => 'required',
             'description' => 'required',
@@ -228,7 +225,6 @@ class ProductController extends Controller
             'price' => 'Bạn cần phải nhập giá sản phẩm',
             'sale' => 'Bạn cần phải nhập giá khuyến mãi sản phẩm',
             'category_id' => 'Bạn cần phải chọn danh mục',
-            'brand_id' => 'Bạn cần phải chọn nhãn hiệu',
             'vendor_id' => 'Bạn cần phải chọn nhà cung cấp',
             'summary' => 'Bạn cần phải nhập tóm tắt sp',
             'description' => 'Bạn cần phải nhập mô tả chi tiết sp',
@@ -263,7 +259,7 @@ class ProductController extends Controller
         $product->sale = Str::remove(',', $request->input('sale'));
         $product->url = $request->input('url');
         $product->category_id = $request->input('category_id');
-        $product->brand_id = $request->input('brand_id');
+//        $product->brand_id = $request->input('brand_id');
         $product->vendor_id = $request->input('vendor_id');
 
         //Trang thai
@@ -299,7 +295,7 @@ class ProductController extends Controller
         //Luu
         $product->save();
 
-        Product::addAllToIndex();
+        //Product::addAllToIndex();
 
         //sau khi thêm dữ liệu product vào db thành công chuyển hướng về trang danh sách
         // hàm redirect() tương tự hàm header() dùng chuyễn hướng trang

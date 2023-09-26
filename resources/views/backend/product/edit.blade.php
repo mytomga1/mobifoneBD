@@ -128,15 +128,15 @@
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <label for="brand_id">nhãn hiệu :</label>
-                                <select class="form-control" name="brand_id" id="brand_id">
-                                    <option value="0">---Chọn nhãn hiệu---</option>
-                                    @foreach($Ven_Bra['brand']  as $item)
-                                        <option @if($product->brand_id == $item->id) selected @endif value="{{ $item->id }}">{{ $item->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="brand_id">nhãn hiệu :</label>--}}
+{{--                                <select class="form-control" name="brand_id" id="brand_id">--}}
+{{--                                    <option value="0">---Chọn nhãn hiệu---</option>--}}
+{{--                                    @foreach($Ven_Bra['brand']  as $item)--}}
+{{--                                        <option @if($product->brand_id == $item->id) selected @endif value="{{ $item->id }}">{{ $item->name }}</option>--}}
+{{--                                    @endforeach--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
 
                             <div class="form-group">
                                 <label for="position">Vị trí :</label>
@@ -266,11 +266,11 @@
                     document.getElementById('category_id').scrollIntoView();{{--sử dụng scrollIntoView để trỏ đến khu bị lỗi--}}
                         return false;
                 }
-                if ($('#brand_id').val() === '0') {
-                    $('#brand_id').notify('Bạn nhập chưa chọn thương hiệu','error');
-                    document.getElementById('vendor_id').scrollIntoView();
-                    return false;
-                }
+                // if ($('#brand_id').val() === '0') {
+                //     $('#brand_id').notify('Bạn nhập chưa chọn thương hiệu','error');
+                //     document.getElementById('vendor_id').scrollIntoView();
+                //     return false;
+                // }
                 var summary = CKEDITOR.instances['summary'].getData();
                 if (summary === '') {
                     $('#label-summary').notify('Bạn nhập chưa nhập tóm tắt','error',{ position:"right" });

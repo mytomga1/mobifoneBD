@@ -18,84 +18,6 @@
     </section>
     <!-- end Content Header (Page header) -->
 
-    <!-- Main content -->
-    <section class="content">
-        <div class="row">
-            <!-- Bảng ver.1 -->
-            {{--            <div class="col-md-12">--}}
-            {{--                <div class="box">--}}
-            {{--                    <div class="box-header with-border">--}}
-            {{--                        @if(\Auth::user()->role_id == 1) <!-- kiểm tra tài khoản có phải là admin ko, nếu là admin thì show combobox filter -->--}}
-            {{--                            <div class="form-group" style="width: 150px;float: left;margin: 0">--}}
-            {{--                                <select class="form-control" id="filter_type" name="filter_type">--}}
-            {{--                                    <option {{ $filter_type == 1 ? 'selected' : '' }} value="1">Tất cả</option>--}}
-            {{--                                    <option {{ $filter_type == 2 ? 'selected' : '' }} value="2">Đang Sử Dụng</option>--}}
-            {{--                                    <option {{ $filter_type == 3 ? 'selected' : '' }} value="3">Thùng rác</option>--}}
-            {{--                                </select>--}}
-            {{--                            </div>--}}
-            {{--                        @endif--}}
-            {{--                        <a href="{{ route('admin.category.create') }}" class="btn btn-primary pull-right"><i class="fa fa-plus" aria-hidden="true"></i></a>--}}
-            {{--                    </div>--}}
-            {{--                    <!-- /.box-header -->--}}
-            {{--                    <div class="box-body no-padding">--}}
-            {{--                        <div class="box-header">--}}
-            {{--                        </div>--}}
-            {{--                        <table class="table table-bordered">--}}
-            {{--                            <tr>--}}
-            {{--                                <th style="width: 10px">TT</th>--}}
-            {{--                                <th>Hình ảnh</th>--}}
-            {{--                                <th>Tên</th>--}}
-            {{--                                <th>Danh mục cha</th>--}}
-            {{--                                <th>Trạng thái</th>--}}
-            {{--                                <th>Sắp sếp</th>--}}
-            {{--                                <th>Hành động</th>--}}
-            {{--                            </tr>--}}
-            {{--                            @foreach($data as $key => $item)--}}
-            {{--                                @php--}}
-            {{--                                    @endphp--}}
-            {{--                                <tr class="item-{{ $item->id }}">--}}
-            {{--                                    <td>{{ $key + 1 }}</td>--}}
-            {{--                                    <td>--}}
-            {{--                                        @if($item->image && file_exists(public_path($item->image)))--}}
-            {{--                                            <img src="{{ asset($item->image) }}" width="100" height="75" alt="">--}}
-            {{--                                        @else--}}
-            {{--                                            <img src="{{ asset('frontend\Img404.png') }}" width="100" height="75" alt="">--}}
-            {{--                                        @endif--}}
-            {{--                                    </td>--}}
-            {{--                                    <td>{{ $item->name }}</td>--}}
-            {{--                                    <td>--}}
-            {{--                                        {{ !empty($item->parent->name) ? $item->parent->name : '' }}--}}
-            {{--                                    </td>--}}
-            {{--                                    <td>--}}
-            {{--                                        {!! $item->is_active == 1 ? '<span class="badge bg-green">ON</span>' : '<span class="badge bg-danger">OFF</span>' !!}--}}
-            {{--                                    </td>--}}
-            {{--                                    <td>--}}
-            {{--                                        {{ $item->position }}--}}
-            {{--                                    </td>--}}
-            {{--                                    <td class="action" >--}}
-            {{--                                        <a href="{{ route('admin.category.edit', ['category' => $item->id]) }}"><span title="Chỉnh sửa" type="button" class="btn btn-flat btn-primary"><i class="fa fa-edit"></i></span></a>--}}
-            {{--                                        @if($item->deleted_at == null)--}}
-            {{--                                            <span  data-id="{{ $item->id }}" title="Xóa" class="btn btn-flat btn-danger deleteItem"><i class="fa fa-trash"></i></span>--}}
-            {{--                                            <span style="display:none;" data-id="{{ $item->id }}" title="Khôi phục" class="btn btn-flat btn-warning restoreItem"><i class="fa fa-refresh"></i></span>--}}
-            {{--                                        @else--}}
-            {{--                                            <span style="display:none;" data-id="{{ $item->id }}" title="Xóa" class="btn btn-flat btn-danger deleteItem"><i class="fa fa-trash"></i></span>--}}
-            {{--                                            <span  data-id="{{ $item->id }}" title="Khôi phục" class="btn btn-flat btn-warning restoreItem"><i class="fa fa-refresh"></i></span>--}}
-            {{--                                        @endif--}}
-            {{--                                    </td>--}}
-            {{--                                </tr>--}}
-            {{--                            @endforeach--}}
-            {{--                        </table>--}}
-            {{--                    </div>--}}
-            {{--                    <!-- /.box-body -->--}}
-            {{--                    <div class="box-footer clearfix">--}}
-            {{--                        <ul class="pagination pagination-sm no-margin pull-right">--}}
-            {{--                            {!! $data->links('vendor.pagination.custom2') !!}--}}
-            {{--                        </ul>--}}
-            {{--                    </div>--}}
-            {{--                </div>--}}
-            {{--            </div>--}}
-            <!-- Bảng ver.1 -end-->
-
             <!-- Bảng ver.2 -->
             <div class="col-xs-12 table-responsive">
                 <div class="box">
@@ -121,7 +43,7 @@
                                 <th>Tên</th>
                                 <th>Danh mục cha</th>
                                 <th>Trạng thái</th>
-                                <th>Sắp sếp</th>
+                                <th>Loại Danh Mục</th>
                                 <th>Hành động</th>
                             </tr>
                             </thead>
@@ -146,7 +68,11 @@
                                         {!! $item->is_active == 1 ? '<span class="badge bg-green">ON</span>' : '<span class="badge bg-danger">OFF</span>' !!}
                                     </td>
                                     <td>
-                                        {{ $item->position }}
+                                        @if($item->type == 1)
+                                            Danh mục Sản Phẩm
+                                        @else
+                                            Danh mục Tin Tức
+                                        @endif
                                     </td>
                                     <td class="action" >
                                         <a href="{{ route('admin.category.edit', ['category' => $item->id]) }}"><span title="Chỉnh sửa" type="button" class="btn btn-flat btn-primary"><i class="fa fa-edit"></i></span></a>
