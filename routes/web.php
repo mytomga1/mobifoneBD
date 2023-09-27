@@ -45,6 +45,9 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function (){//
     Route::resource('banner', \App\Http\Controllers\BannerController::class);
     Route::post('banner/restore/{banner}', [\App\Http\Controllers\BannerController::class, 'restore'])->name('banner.restore');
 
+    Route::resource('bannerposition', \App\Http\Controllers\BannerpositionController::class);
+    Route::post('bannerposition/restore/{bannerposition}', [\App\Http\Controllers\BannerpositionController::class, 'restore'])->name('bannerposition.restore');
+
     Route::resource('/user', \App\Http\Controllers\UserController::class);
     Route::post('user/restore/{user}', [\App\Http\Controllers\UserController::class, 'restore'])->name('user.restore');
 

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Schema;
 /**
  * (Sử dụng câu lệnh này để add cột softdelete trong bảng roles)
  * --> php artisan make:migration add_softdelete_to_roles_table --table=roles
+ * --> php artisan migrate --path=/database/migrations/2023_09_26_085355_add_softdelete_to_bannerpositions_table
  *
  * (Sử dụng câu lệnh này để upload cột deleted_at(softdelete) trong bảng roles trong DB)
  *     php artisan migrate --path=/database/migrations/(Tên file.php)

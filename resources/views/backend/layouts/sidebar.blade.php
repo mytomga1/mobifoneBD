@@ -60,7 +60,7 @@
                 </a>
                 <ul class="treeview-menu" style="display: none;">
                     <li><a href="{{route('admin.banner.index')}}"><i class="fa fa-circle-o"></i> Quản Lý Banner</a></li>
-                    <li><a href="{{route('admin.banner.create')}}"><i class="fa fa-circle-o"></i> Tạo Mới Banner</a></li>
+                    <li><a href="{{route('admin.bannerposition.index')}}"><i class="fa fa-circle-o"></i> Quản lý Vị Trí Banners</a></li>
                 </ul>
             </li>
 
