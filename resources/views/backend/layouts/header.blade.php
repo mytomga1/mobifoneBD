@@ -4,8 +4,8 @@
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>M</b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b style="color: #0b3e6f">Mobi</b><b style="color: red">Fone</b></span>
-{{--        <span><img src="{{asset('frontend\img\logo\mobifone-logo-ai.png')}}" height="50px" width="200px" alt=""></span>--}}
+{{--        <span class="logo-lg"><b style="color: #0b3e6f">Mobi</b><b style="color: red">Fone</b></span>--}}
+        <span><img src="{{asset('frontend\img\logo\Logo_MobiFone_from_2020.png')}}" height="50px" width="200px" alt=""></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">

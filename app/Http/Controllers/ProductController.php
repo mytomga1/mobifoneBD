@@ -237,7 +237,7 @@ class ProductController extends Controller
         //  :: trong laravel tượng trưng cho hàm static
         $product->slug = Str::slug($request->input('name')); //slug
 
-        if($request->hasFile('image')){// kiểm tra xem có ảnh dc chọn ko
+        if($request->hasFile('image')){// kiểm tra file ảnh có tồn tại ko
 
             // get file - tạo ra 1 biến file đại diện cho file ảnh dc up lên
             $file = $request->file('image');
@@ -245,7 +245,7 @@ class ProductController extends Controller
             // đặt tên cho file ảnh (thời gian tạo + tên ảnh)
             $filename = time().'_'.$file->getClientOriginalName();
 
-            // định nghĩa đường dẫn lưu trữ file ảnh
+            // định nghĩa đường dẫn file ảnh
             $path_upload = 'frontend/img/product/';
 
             // thực hiện chuyển file ảnh (thông qua hàm move()) vào thư mục đã cấu hình
