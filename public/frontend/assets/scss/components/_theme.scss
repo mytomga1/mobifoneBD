@@ -50,10 +50,11 @@
 }
 
 /*---------------------------------
-    typography css start 
+    typography css start
 ---------------------------------*/
 body {
-	font-family: $rubik;
+	//font-family: $rubik;
+    font-family: "arial-black", sans-serif;
 	font-size: 16px;
 	font-weight: normal;
 	color: $grey;
@@ -70,7 +71,8 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: $rubik;
+	//font-family: $rubik;
+    font-family: "arial-black", sans-serif;
 	color: $black-3;
 	margin-top: 0px;
 	font-weight: 500;
@@ -104,7 +106,8 @@ li {
 	list-style: none;
 }
 p {
-	font-family: $grey;
+	//font-family: $grey;
+    font-family: "arial-black", sans-serif;
 	font-size: 14px;
 	font-weight: normal;
 	color: $grey;
@@ -162,7 +165,7 @@ button:hover{
 }
 
 button:focus{
-    outline: 0; 
+    outline: 0;
     border:0
 }
 
@@ -206,7 +209,7 @@ input{
 }
 
 /*---------------------------------
-    common classes css start 
+    common classes css start
 ---------------------------------*/
 
 .w-img{
@@ -304,7 +307,7 @@ input{
 
 
 /*----------------------------------------
-    Body Overlay 
+    Body Overlay
 -----------------------------------------*/
 
 .body-overlay{

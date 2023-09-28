@@ -39,7 +39,7 @@
                                 <th>Hình ảnh</th>
                                 <th>Tên</th>
                                 <th>Danh Mục</th>
-                                <th>Số lượng</th>
+                                <th>Giá Tiền</th>
                                 <th>Trạng thái</th>
                                 <th>Hành động</th>
                             </tr>
@@ -59,7 +59,7 @@
                                     </td>
                                     <td>{{ $item->name }}</td>
                                     <td> {{ !empty($item->category->name) ? $item->category->name : '' }}</td> {{-- kiểm tra nếu category ko null thì show ra category name còn ko (?) hiển thị ''--}}
-                                    <td>{{ $item->stock }}</td>
+                                    <td>{{ $item->price }} VNĐ</td>
                                     <td>
                                         {!! $item->is_active == 1 ? '<span class="badge bg-green">ON</span>' : '<span class="badge bg-danger">OFF</span>' !!}
                                     </td>

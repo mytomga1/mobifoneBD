@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[\App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
+Route::get('/tin-tuc', [\App\Http\Controllers\HomeController::class, 'articles'])->name('articles');
+Route::get('/tin-tuc/{slug}', [\App\Http\Controllers\HomeController::class, 'ArticleDetail'])->name('article-detail');
+
+Route::get('/404', [\App\Http\Controllers\HomeController::class, 'errorPage404'])->name('error-page404');
+
 //[Admin Route]
 
 Route::get('/admin/login', [\App\Http\Controllers\AdminController::class, 'login'])->name('login');

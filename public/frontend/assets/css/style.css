@@ -42,10 +42,11 @@
 }
 
 /*---------------------------------
-    typography css start 
+    typography css start
 ---------------------------------*/
 body {
-  font-family: "Rubik", sans-serif;
+  /*font-family: "Rubik", sans-serif;*/
+  font-family: "system-ui", sans-serif;
   font-size: 16px;
   font-weight: normal;
   color: #666;
@@ -62,7 +63,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Rubik", sans-serif;
+  /*font-family: "Rubik", sans-serif;*/
+  font-family: "system-ui", sans-serif;
   color: #1F2024;
   margin-top: 0px;
   font-weight: 500;
@@ -216,7 +218,7 @@ input {
 }
 
 /*---------------------------------
-    common classes css start 
+    common classes css start
 ---------------------------------*/
 .w-img img {
   width: 100%;
@@ -321,7 +323,7 @@ input {
   }
 }
 /*----------------------------------------
-    Body Overlay 
+    Body Overlay
 -----------------------------------------*/
 .body-overlay {
   background-color: rgba(0, 0, 0, 0.5);
@@ -3232,7 +3234,8 @@ input {
   color: #fcbe00;
 }
 .product__content-d {
-  padding-bottom: 0;
+    padding-bottom: 0;
+    padding-left: 10px;
 }
 @media (max-width: 479px) {
   .product__content-d .rating ul {
@@ -4728,7 +4731,8 @@ input {
   font-size: 60px;
   color: #F2F4F7;
   display: inline-block;
-  font-family: "Rubik", sans-serif;
+  /*font-family: "Rubik", sans-serif;*/
+  font-family: "system-ui", sans-serif;
   font-weight: 600;
 }
 
