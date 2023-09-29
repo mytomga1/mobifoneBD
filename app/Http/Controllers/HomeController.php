@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Articles;
 use App\Models\Banner;
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller
@@ -54,15 +57,89 @@ class HomeController extends Controller
                 // SELECT * FROM `products` WHERE is_active = 1 AND is_hot = 0 AND category_id IN (1,7,9,11) ORDER BY id DESC LIMIT 10
                 $list[$key]['products'] = Product::where(['is_active' => 1]) //, 'is_hot' => 0
                 ->whereIn('category_id', $ids)
-                    ->limit(6)
                     ->orderBy('id', 'desc')
                     ->get();
-
-
             }
         }
 
         return view('frontend.index', ['list' =>$list])->with('allProduct', $allProduct);
+    }
+
+
+    // Tạo 1 hàm category router với mục đích lấy danh sách sản phẩm theo menu danh muc
+    public function category(Request $request, $slug){
+
+        $filter_brands = $request->query('thuong-hieu');
+        $branch_ids = [];
+
+        if ($filter_brands) {
+            $arr_filter_brands = explode(',', $filter_brands); // ['apple', 'xiaomi', 'dell']
+            $arr_brands = Brand::whereIn('slug' , $arr_filter_brands)->get();
+
+            foreach ($arr_brands as $item) {
+                $branch_ids[] = $item->id; // thêm phần tử vào mảng
+            }
+        }
+
+        // THuong hieu
+        $branchs = Brand::all();
+
+        $category = Category::where('slug', $slug)->where('is_active', 1)->where('deleted_at', null)->first();
+
+        if ($category == null) {
+            return view('frontend.404');
+        }
+
+        $ids[] = $category->id; // khai báo mảng chứa các mã danh mục cần tìm kiếm chưa các sản phẩm
+
+        foreach ($this->categories as $child) {
+            if ($child->parent_id == $category->id) {
+                $ids[] = $child->id; // thêm id của danh mục con vào mảng ids
+
+                foreach ($this->categories as $sub_child) {
+                    if ($sub_child->parent_id == $child->id) {
+                        $ids[] = $child->id;
+                    }
+                }
+            }
+        }
+
+        $query = DB::table('products')->select('*')
+            ->where('is_active', 1)
+            ->where('deleted_at', null)
+            ->whereIn('category_id', $ids);
+
+
+        // Lọc theo thương hiệu
+        if (!empty($branch_ids)) {
+            $query->whereIn('brand_id', $branch_ids);
+        }
+
+        // cần viết đệ quy lấy toàn bộ danh mục cha con
+
+        // step 2 : lấy list sản phẩm theo thể loại
+//        $products = Product::where('is_active', 1)
+//            ->whereIn('category_id' , $ids)
+//            ->latest() // lấy dữ liệu mới nhất
+//            ->paginate(10); // phân trang (1 trang chứa 15 phần tử)
+
+        $list_products = $query->paginate(16);
+
+
+
+
+        return view('frontend.productList', ['category' => $category, 'products' => $list_products, 'branchs' => $branchs,'arr_filter_brands' => json_encode($branch_ids)]);
+    }
+
+    public function product(Request $request, $slug)
+    {
+        $product = Product::where('is_active', 1)->where('slug', $slug)->first();
+
+        if ($product == null) {
+            return view('frontend.404');
+        }
+
+        return view('frontend.product-detail', ['product' => $product]);
     }
 
     public function articles(){

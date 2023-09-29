@@ -59,7 +59,7 @@
                                     </td>
                                     <td>{{ $item->name }}</td>
                                     <td> {{ !empty($item->category->name) ? $item->category->name : '' }}</td> {{-- kiểm tra nếu category ko null thì show ra category name còn ko (?) hiển thị ''--}}
-                                    <td>{{ $item->price }} VNĐ</td>
+                                    <td> {{ number_format($item->price,0,",",".") }} đ</td>
                                     <td>
                                         {!! $item->is_active == 1 ? '<span class="badge bg-green">ON</span>' : '<span class="badge bg-danger">OFF</span>' !!}
                                     </td>
