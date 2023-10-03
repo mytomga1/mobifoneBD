@@ -26,12 +26,10 @@
             <div class="container">
                 <div class="row">
 
-                    <!-- shopmenu-bên trái-start -->
-                    {{--                    @include('frontend.layouts.leftSliderBar')--}}
+                    <!-- Category bên trái__area-start -->
                     <div class="col-xl-3 col-lg-4">
-                        <!-- khu vực danh mục con sản phẩm -->
                         <div class="product-widget mb-30">
-                            <h5 class="pt-title">Danh mục sản phẩm</h5>
+                            <h5 class="pt-title">DANH SÁCH SẢN PHẨM</h5>
                             <div class="widget-category-list mt-20">
                                 <form action="#">
                                     @foreach($categories as $item)
@@ -45,26 +43,18 @@
                             </div>
                         </div>
                     </div>
-                    <!-- shopmenu-bên trái-end -->
+                    <!-- Category bên trái__area-end -->
 
                     <div class="col-xl-9 col-lg-8">
-
-                        <!-- banner-trên cùng-start -->
                         <div class="shop-banner mb-30">
                             <div class="banner-image">
-                                <img class="banner-l" src="{{ asset('frontend') }}/img/banner/sl-banner.jpg" alt="">
-                                <img class="banner-sm" src="{{ asset('frontend') }}/img/banner/sl-banner-sm.png" alt="">
-                                <div class="banner-content text-center">
-                                    <p class="banner-text mb-30">Nhanh Lên Nào! <br> Giảm 20% cho đơn hàng đầu tiên</p>
-                                    <a href="shop.html" class="st-btn-d b-radius">Let's Go</a>
-                                </div>
+                                <img class="banner-l" src="@if($banners2[0]->image && file_exists(public_path($banners2[0]->image)))
+                                                                                                                    {{ asset($banners2[0]->image) }}
+                                                                                                                 @else
+                                                                                                                    {{ asset('frontend\img\slider\02-slide-3.jpg') }}
+                                                                                                                 @endif" height="250px" width="1050px" alt="">
                             </div>
-
-                            {{--                            @include('frontend.layouts.bannerPopularCategories')--}}
                         </div>
-                        <!-- banner-trên cùng-end -->
-
-                        <!-- filter opition bar -start-->
                         <div class="product-lists-top">
                             <div class="product__filter-wrap">
                                 <div class="row align-items-center">
@@ -77,48 +67,23 @@
                                                             <i class="fal fa-th"></i>
                                                         </button>
                                                     </li>
-                                                    <li class="nav-item" role="presentation">
-                                                        <button class="nav-link" id="FiveCol-tab" data-bs-toggle="tab" data-bs-target="#FiveCol" type="button" role="tab" aria-controls="FiveCol" aria-selected="false">
-                                                            <i class="fal fa-list"></i>
-                                                        </button>
-                                                    </li>
                                                 </ul>
                                             </div>
-                                            {{--                                            <div class="product__result pl-60">--}}
-                                            {{--                                                <p>Showing 1-20 of 29 relults</p>--}}
-                                            {{--                                            </div>--}}
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-                                        <div class="product__filter-right d-flex align-items-center justify-content-md-end">
-                                            <div class="product__sorting product__show-no">
-                                                <select>
-                                                    <option>10</option>
-                                                    <option>20</option>
-                                                    <option>30</option>
-                                                    <option>40</option>
-                                                </select>
-                                            </div>
-                                            <div class="product__sorting product__show-position ml-20">
-                                                <select>
-                                                    <option>Latest</option>
-                                                    <option>New</option>
-                                                    <option>Up comeing</option>
-                                                </select>
+                                            <div class="product__result pl-60">
+                                                <p>Showing 1-20 of 29 relults</p>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
-                        <!-- filter opition bar -end-->
-
-                        <!-- Danh Sach product -start-->
                         <div class="tab-content" id="productGridTabContent">
+
+                            <!-- show sản phẩm dạng danh sách__area-start -->
                             <div class="tab-pane fade  show active" id="FourCol" role="tabpanel" aria-labelledby="FourCol-tab">
                                 <div class="tp-wrapper">
                                     <div class="row g-0">
-
                                         @foreach($products as $product)
                                             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                                                 <div class="product__item product__item-d">
@@ -126,91 +91,72 @@
                                                         <div class="product-image w-img">
                                                             <a href="{{ route('product', ['product' => $product->slug]) }}">
                                                                 <img src="
+
                                                                             @if($product->image && file_exists(public_path($product->image)))
                                                                                 {{ asset($product->image) }}
                                                                             @else
                                                                                 {{ asset('frontend\Img404.png') }}
                                                                             @endif
-                                                                " width="230px" height="230px" title="{{$product->name}}">
+
+                                                                         " height="239px" width="239px" title="{{$product->name}}">
                                                             </a>
-                                                        </div>
-                                                        <div class="product-action">
-                                                            <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                                <i class="fal fa-eye"></i>
-                                                                <i class="fal fa-eye"></i>
-                                                            </a>
-                                                            <a href="#" class="icon-box icon-box-1">
-                                                                <i class="fal fa-heart"></i>
-                                                                <i class="fal fa-heart"></i>
-                                                            </a>
-                                                            <form action="#" method="POST" enctype="multipart/form-data">
-                                                                @csrf
-                                                                <input type="hidden" value="{{ $product->id }}" name="id">
-                                                                <input type="hidden" value="{{ $product->name }}" name="name">
-                                                                <input type="hidden" value="{{ $product->sale }}" name="price">
-                                                                <input type="hidden" value="{{ $product->image }}"  name="image">
-                                                                <input type="hidden" value="1"  name="quantity">
-                                                                <button class="icon-box icon-box-1">
-                                                                    <i class="fal fa-shopping-cart"></i>
-                                                                    <i class="fal fa-shopping-cart"></i>
-                                                                </button>
-                                                            </form>
                                                         </div>
                                                     </div>
-
-
                                                     <div class="product__content-3">
-                                                        <h6><a href="{{ route('product', ['product' => $product->slug]) }}" title="{{$product->name}}">{{ substr($product->name,0,30) }}</a></h6>
-                                                        <!-- chức năng ratting (chưa triễn khai) -start-->
-                                                        {{--                                                    <div class="rating mb-5">--}}
-                                                        {{--                                                        <ul>--}}
-                                                        {{--                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>--}}
-                                                        {{--                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>--}}
-                                                        {{--                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>--}}
-                                                        {{--                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>--}}
-                                                        {{--                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>--}}
-                                                        {{--                                                        </ul>--}}
-                                                        {{--                                                        <span>(01 review)</span>--}}
-                                                        {{--                                                    </div>--}}
-                                                        <!-- chức năng ratting (chưa triễn khai) -end-->
+                                                        <br/>
+                                                        <h6 style="color: red"><strong><a href="{{ route('product', ['product' => $product->slug]) }}">{{ substr($product->name,0,30) }}</a></strong></h6>
+
                                                         <div class="price mb-10">
-                                                            <span style="color: red">{{ number_format($product->sale,0,",",".") }} đ </span> <span> |<del> {{ number_format($product->price,0,",",".") }} đ</del></span>
+                                                            @if($product->price > 0)
+                                                                <strong><span>{{ number_format($product->price,0,",",".") }} đ</span></strong>
+                                                            @else
+                                                                <i class="fa fa-phone-square"></i><strong><span> Liên Hệ</span></strong>
+                                                            @endif
+
                                                         </div>
                                                     </div>
-
-
                                                     <div class="product__add-cart-s text-center">
-                                                        <form action="#" method="POST" enctype="multipart/form-data">
-                                                            @csrf
-                                                            <input type="hidden" value="{{ $product->id }}" name="id">
-                                                            <input type="hidden" value="{{ $product->name }}" name="name">
-                                                            <input type="hidden" value="{{ $product->sale }}" name="price">
-                                                            <input type="hidden" value="{{ $product->image }}"  name="image">
-                                                            <input type="hidden" value="1"  name="quantity">
-{{--                                                            <button type="submit" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">--}}
-{{--                                                                Thêm vào giỏ hàng--}}
-{{--                                                            </button>--}}
-                                                        </form>
-                                                        <button class="wc-checkout d-flex align-items-center justify-content-center w-100">{{-- data-bs-toggle="modal" data-bs-target="#productModalId"--}}
+                                                        <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
                                                             <a href="{{ route('product', ['product' => $product->slug]) }}">Chi tiết</a>
                                                         </button>
                                                     </div>
                                                 </div>
                                             </div>
                                         @endforeach
-
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Danh Sach product -end-->
+                            <!-- show sản phẩm dạng danh sách__area-start -->
 
+                        </div>
                         <div class="tp-pagination text-center">
                             <div class="row">
                                 <div class="col-xl-12">
-                                    <div class=" pt-30 pb-30">
-                                        {!! $products->links('') !!}
-{{--                                        {!! $products->links('vendor.pagination.custom') !!}--}}
+                                    <div class="basic-pagination pt-30 pb-30">
+                                        <nav>
+                                            <ul>
+                                                <li>
+                                                    <a href="shop.html" class="active">1</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">2</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">3</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">5</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">6</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">
+                                                        <i class="fal fa-angle-double-right"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </nav>
                                     </div>
                                 </div>
                             </div>

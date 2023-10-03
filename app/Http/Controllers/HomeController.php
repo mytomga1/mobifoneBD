@@ -29,8 +29,13 @@ class HomeController extends Controller
         // Lấy dữ liệu - Banner, có trạng thái là hiển thị
         $banners = Banner::where(['is_active' => 1])
             ->where('deleted_at', null)
-            ->where('position_id', 1)
+            ->where('position_id', 1) // Banner slide size lớn trang danh sách sản phẩm
             ->orderBy('id')
+            ->get();
+
+        $banners2 = Banner::where(['is_active' => 1])
+            ->where('deleted_at', null)
+            ->where('position_id', 2) // Banner này sẽ ở vị trí bên trang danh sách sản phẩm
             ->get();
 
         $articles = Articles::where(['is_active' => 1])
@@ -39,17 +44,11 @@ class HomeController extends Controller
             ->limit(6)
             ->get();
 
-        $vendorFooter = Vendor::where(['is_active' => 1])
-            ->where('deleted_at', null)
-            // where('type', 5)
-            //->orderBy('created_at')
-            ->orderBy('id')
-            ->get();
 
         View::share('categories', $this->categories);
         View::share('banners', $banners);
+        View::share('banners2', $banners2);
         View::share('articles', $articles);
-        View::share('vendorFooter', $vendorFooter);
         View::share('setting', $setting);
 
     }
@@ -215,7 +214,6 @@ class HomeController extends Controller
 
         return redirect('/lien-he')->with('msgContact', 'Gửi liên hệ thành công !');
     }
-
 
 
     public function errorPage404()

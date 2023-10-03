@@ -33,25 +33,11 @@
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
-            <!--            <li class="header">MAIN NAVIGATION</li>-->
-            <!--            <li class="active treeview">-->
-            <!--                <a href="mvc.local/">-->
-            <!--                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>-->
-            <!--                </a>-->
-            <!--            </li>-->
             <li>
                 <a href="{{asset('/admin')}}">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
-
-            {{--            <li>--}}
-            {{--                <a href="{{route('banner.create')}}">--}}
-            {{--                    <i class="fa fa-th"></i> <span>Banner</span>--}}
-            {{--                    <span class="pull-right-container">--}}
-            {{--            </span>--}}
-            {{--                </a>--}}
-            {{--            </li>--}}
 
             <li class="treeview" style="height: auto;">
                 <a href="#">
@@ -105,6 +91,13 @@
                     <li><a href="{{route('admin.article.create')}}"><i class="fa fa-circle-o"></i> Thêm Mới Bài Viết</a></li>
                 </ul>
             </li>
+
+            <li>
+                <a href="{{asset('/admin')}}">
+                    <i class="fa fa-shopping-cart"></i> <span>Quản Lý Đơn Hàng</span>
+                </a>
+            </li>
+
             @if(\Auth::user()->role_id == 1)
                 <li class="treeview" style="height: auto;">
                     <a href="#">

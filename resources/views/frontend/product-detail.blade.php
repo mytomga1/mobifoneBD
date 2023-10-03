@@ -52,13 +52,10 @@
                             <h6>{{ $product->name }}</h6>
 
                             <div class="price mb-10">
-                                <span style="color: red">{{ number_format($product->sale,0,",",".") }} đ</span><span> &ensp; - &ensp;<del> {{ number_format($product->price,0,",",".") }} đ</del></span>
+                                <span style="color: red">{{ number_format($product->sale,0,",",".") }} đ</span>
                             </div>
                             <div class="features-des mb-20 mt-10">
                                 {!! $product->summary !!}
-                            </div>
-                            <div class="product-stock mb-20">
-                                <h5>Tình trạng : <span> {{ $product->stock > 0 ? 'Còn hàng' : 'Hết hàng' }}</span></h5>
                             </div>
 
                             <!-- khu vực chức năng giỏ hàng -start -->
@@ -70,22 +67,13 @@
                                 <input type="hidden" value="{{ $product->image }}"  name="image">
 
                                 <div class="cart-option mb-15">
-                                    <div class="product-quantity mr-20">
-                                        <div class="cart-plus-minus p-relative"><input name="quantity" type="text" value="1"><div class="dec qtybutton">-</div><div class="inc qtybutton">+</div></div>
-                                    </div>
-                                    <button class="cart-btn" type="submit">Thêm vào giỏ hàng</button>
+                                    <button class="cart-btn" type="submit">Liên Hệ</button>
                                 </div>
                             </form><!-- khu vực chức năng giỏ hàng -end -->
 
 
                             <div class="details-meta">
                                 <div class="d-meta-left">
-                                    <div class="dm-item mr-20">
-                                        <a href="#"><i class="fal fa-heart"></i>Thêm vào danh sách yêu thích</a>
-                                    </div>
-                                    {{--                                    <div class="dm-item">--}}
-                                    {{--                                        <a href="#"><i class="fal fa-layer-group"></i>Compare</a>--}}
-                                    {{--                                    </div>--}}
                                 </div>
                                 <div class="d-meta-left">
                                     <div class="dm-item">
@@ -93,27 +81,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- khu vực chức năng tag sp -start -->
-                            {{--                            <div class="product-tag-area mt-15">--}}
-                            {{--                                <div class="product_info">--}}
-                            {{--                                    <span class="sku_wrapper">--}}
-                            {{--                                        <span class="title">SKU:</span>--}}
-                            {{--                                        <span class="sku">DK1002</span>--}}
-                            {{--                                    </span>--}}
-                            {{--                                    <span class="posted_in">--}}
-                            {{--                                        <span class="title">Categories:</span>--}}
-                            {{--                                        <a href="#">iPhone</a>--}}
-                            {{--                                        <a href="#">Tablets</a>--}}
-                            {{--                                    </span>--}}
-                            {{--                                    <span class="tagged_as">--}}
-                            {{--                                        <span class="title">Tags:</span>--}}
-                            {{--                                        <a href="#">Smartphone</a>,--}}
-                            {{--                                        <a href="#">Tablets</a>--}}
-                            {{--                                    </span>--}}
-                            {{--                                </div>--}}
-                            {{--                            </div>--}}
-                            <!-- khu vực chức năng tag sp -end -->
 
                         </div>
                     </div>
@@ -143,7 +110,7 @@
 
                                 <!-- tab đánh giá sản phẩm -start -->
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false">Đánh giá </button>
+                                    <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false">Liên Hệ </button>
                                 </li>
                                 <!-- tab đánh giá sản phẩm -end -->
                             </ul>
@@ -171,94 +138,40 @@
                     <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
                         <div class="product__details-review">
                             <div class="row">
-                                <div class="col-xl-4">
-                                    <div class="review-rate">
-                                        <h5>5.00</h5>
-                                        <div class="review-star">
-                                            <a href="#"><i class="fas fa-star"></i></a>
-                                            <a href="#"><i class="fas fa-star"></i></a>
-                                            <a href="#"><i class="fas fa-star"></i></a>
-                                            <a href="#"><i class="fas fa-star"></i></a>
-                                            <a href="#"><i class="fas fa-star"></i></a>
-                                        </div>
-                                        <span class="review-count">01 Review</span>
-                                    </div>
-                                </div>
                                 <div class="col-xl-8">
                                     <div class="review-des-infod">
-                                        <h6>1 review for "<span>Wireless Bluetooth Over-Ear Headphones</span>"</h6>
-                                        <div class="review-details-des">
-                                            <div class="author-image mr-15">
-                                                <a href="#"><img src="{{ asset('frontend') }}/img/author/author-sm-1.jpeg" alt=""></a>
-                                            </div>
-                                            <div class="review-details-content">
-                                                <div class="str-info">
-                                                    <div class="review-star mr-15">
-                                                        <a href="#"><i class="fas fa-star"></i></a>
-                                                        <a href="#"><i class="fas fa-star"></i></a>
-                                                        <a href="#"><i class="fas fa-star"></i></a>
-                                                        <a href="#"><i class="fas fa-star"></i></a>
-                                                        <a href="#"><i class="fas fa-star"></i></a>
-                                                    </div>
-                                                    <div class="add-review-option">
-                                                        <a href="#">Add Review</a>
-                                                    </div>
-                                                </div>
-                                                <div class="name-date mb-30">
-                                                    <h6> admin – <span> May 27, 2021</span></h6>
-                                                </div>
-                                                <p>A light chair, easy to move around the dining table and about the room. Duis aute irure dolor in reprehenderit in <br> voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                            </div>
-                                        </div>
+                                        <h3>ĐĂNG KÝ GÓI CƯỚC</h3>
+                                        <br/>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div class="product__details-comment ">
-                                        <div class="comment-title mb-20">
-                                            <h3>Add a review</h3>
-                                            <p>Your email address will not be published. Required fields are marked *</p>
-                                        </div>
-                                        <div class="comment-rating mb-20">
-                                            <span>Overall ratings</span>
-                                            <ul>
-                                                <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                            </ul>
-                                        </div>
                                         <div class="comment-input-box">
                                             <form action="#">
                                                 <div class="row">
                                                     <div class="col-xxl-6 col-xl-6">
                                                         <div class="comment-input">
-                                                            <input type="text" placeholder="Your Name">
+                                                            <input type="text" placeholder="Họ và Tên">
                                                         </div>
                                                     </div>
                                                     <div class="col-xxl-6 col-xl-6">
                                                         <div class="comment-input">
-                                                            <input type="email" placeholder="Your Email">
+                                                            <input type="number" placeholder="số điện thoại">
                                                         </div>
                                                     </div>
                                                     <div class="col-xxl-12">
-                                                        <textarea placeholder="Your review" class="comment-input comment-textarea"></textarea>
+                                                        <div class="comment-input">
+                                                            <input type="text" placeholder="Địa chỉ đang ở">
+                                                        </div>
                                                     </div>
                                                     <div class="col-xxl-12">
-                                                        <div class="comment-agree d-flex align-items-center mb-25">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                                <label class="form-check-label" for="flexCheckDefault">
-                                                                    Save my name, email, and website in this browser for the next time I comment.
-                                                                </label>
-                                                            </div>
-                                                        </div>
+                                                        <textarea placeholder="Ghi chú gói cước muốn đăng ký" class="comment-input comment-textarea"></textarea>
                                                     </div>
                                                     <div class="col-xxl-12">
                                                         <div class="comment-submit">
-                                                            <button type="submit" class="cart-btn">Submit</button>
+                                                            <button type="submit" class="cart-btn">Đăng ký</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -273,5 +186,112 @@
                 </div>
             </div>
         </div>
+        <!-- product-details-des-End -->
+
+        <!-- Contact Form Begin -->
+        <div class="container">
+            @if (session('msgContact'))
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="contact__form__title">
+                            <h3 style="color: green">{{ session('msgContact') }}</h3>
+                        </div>
+                        <a href="/"><i class="fa fa-backward" aria-hidden="true"></i> Quay về trang chủ</a>
+                    </div>
+                </div>
+            @else
+                <div class="news-detalis-area mt-120 mb-70">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="post-comment-form mt-20">
+                                    <h4 class="post-comment-form-title mb-40">Đăng ký gói cước</h4>
+
+                                    <form class="jotform-form" action="{{ route('contactPost') }}" method="POST" id="contact" accept-charset="utf-8">
+                                        @csrf <!-- {{ csrf_field() }} -->
+                                        <input type="hidden" name="formID" value="222183629415456" />
+                                        <input type="hidden" id="JWTContainer" value="" />
+                                        <input type="hidden" id="cardinalOrderNumber" value="" />
+
+                                        <div class="input-field">
+                                            <i class="fal fa-user"></i>
+                                            <input type="text" name="name" id="name" value="{{ old('name') }}"
+                                                   placeholder="Họ và tên....">
+                                            @error('name')
+                                            <p style="color: red;">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+                                        <div class="input-field">
+                                            <i class="fal fa-phone"></i>
+                                            <input type="text" name="phone" id="phone" value="{{ old('phone') }}"
+                                                   placeholder="Số Điện Thoại .....">
+                                            @error('phone')
+                                            <p style="color: red;">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+                                        <div class="input-field">
+                                            <i class="fal fa-envelope"></i>
+                                            <input type="text" name="email" id="email" value="{{ old('email') }}"
+                                                   placeholder="Địa chỉ .....">
+                                            @error('email')
+                                            <p style="color: red;">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+                                        <div class="input-field">
+                                            <i class="fal fa-pencil-alt"></i>
+                                            <textarea name="content" id="content"  placeholder="Ghi chú gói cước mong muốn đăng ký ...."></textarea>
+                                            @error('content')
+                                            <p style="color: red;">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+                                        <button id="input_2" type="submit" class="post-comment form-buttons-center shutter-btn"><i class="fal fa-comments"></i>Gửi Liên Hệ</button>
+
+                                        <li style="display:none">
+                                            Should be Empty:
+                                            <input type="text" name="website" value="" />
+                                        </li>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        </div>
+        <!-- Contract us-area-end -->
     </main>
+@endsection
+
+@section('js')
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            $('.btnSend').click(function () {
+                if ($('#name').val() === '') {
+                    $('#name').notify('Bạn  chưa nhập tên','error');
+                    document.getElementById('name').scrollIntoView();
+                    return false;
+                }
+                if ($('#email').val() === '') {
+                    $('#email').notify('Bạn chưa nhập email','error');
+                    document.getElementById('email').scrollIntoView();
+                    return false;
+                }
+                if ($('#phone').val() === '') {
+                    $('#phone').notify('Bạn  chưa nhập phone','error');
+                    document.getElementById('email').scrollIntoView();
+                    return false;
+                }
+                if ($('#content').val() === '') {
+                    $('#content').notify('Bạn chưa nhập tin nhắn','error');
+                    document.getElementById('email').scrollIntoView();
+                    return false;
+                }
+            });
+        });
+    </script>
 @endsection

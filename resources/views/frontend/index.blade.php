@@ -17,11 +17,6 @@
                         <div class="banner__img">
                             <a href="product-details.html"><img src="{{asset('frontend')}}/banner-020.jpg" alt=""></a>
                         </div>
-                        {{--                        <div class="banner__content">--}}
-                        {{--                            <span>Featured Products</span>--}}
-                        {{--                            <h6><a href="product-details.html">Accessories iPhone</a></h6>--}}
-                        {{--                            <p>Free Shipping All Order Over $99</p>--}}
-                        {{--                        </div>--}}
                     </div>
                 </div>
             </div>
@@ -102,40 +97,6 @@
     @endforeach
     <!-- topsell [Product Show in here]__area-end ========================================================================== -->
 
-    <!-- 3 banner__area-start ========================================================================== -->
-{{--    <section class="banner__area pt-20 pb-10">--}}
-{{--        <div class="container">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-xl-4 col-lg-4 col-md-6">--}}
-{{--                    <div class="banner__item p-relative w-img mb-30">--}}
-{{--                        <div class="banner__img">--}}
-{{--                            <a href="product-details.html"><img src="{{asset('frontend')}}/banner-019.jpg" alt=""></a>--}}
-{{--                        </div>--}}
-{{--                        --}}{{--                        <div class="banner__content">--}}
-{{--                        --}}{{--                            <h6><a href="product-details.html">Intelligent <br> New Touch Control</a></h6>--}}
-{{--                        --}}{{--                            <p>Discount  20% On Products</p>--}}
-{{--                        --}}{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-xl-4 col-lg-4 col-md-6">--}}
-{{--                    <div class="banner__item p-relative mb-30 w-img">--}}
-{{--                        <div class="banner__img">--}}
-{{--                            <a href="product-details.html"><img src="{{asset('frontend')}}/banner-020.jpg" alt=""></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-xl-4 col-lg-4 col-md-6">--}}
-{{--                    <div class="banner__item p-relative mb-30 w-img">--}}
-{{--                        <div class="banner__img">--}}
-{{--                            <a href="product-details.html"><img src="{{asset('frontend')}}/banner-021.jpg" alt=""></a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </section>--}}
-    <!-- 3 banner__area-end   ========================================================================== -->
-
     <!-- moveing-text-area-start -->
     <section class="moveing-text-area">
         <div class="container">
@@ -164,24 +125,6 @@
                     </div>
                 </div>
                 <!-- 2 Combo banner dài nhỏ__area-start -->
-{{--                <div class="col-xl-4 col-lg-6 col-md-12">--}}
-{{--                    <div class="row">--}}
-{{--                        <div class="col-md-12">--}}
-{{--                            <div class="banner__item p-relative mb-30 w-img">--}}
-{{--                                <div class="banner__img">--}}
-{{--                                    <a href="product-details.html"><img src="{{asset('frontend')}}/assets/img/banner/banner-019.jpg" alt=""></a>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-md-12">--}}
-{{--                            <div class="banner__item p-relative w-img mb-30">--}}
-{{--                                <div class="banner__img">--}}
-{{--                                    <a href="product-details.html"><img src="{{asset('frontend')}}/assets/img/banner/banner-020.jpg" alt=""></a>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
                 <div class="col-xl-4 col-lg-6 col-md-12">
                     <div class="banner__item p-relative mb-30 w-img">
                         <div class="banner__img">
