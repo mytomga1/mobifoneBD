@@ -62,25 +62,24 @@
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <label for="type">Loại Banner: </label>
-                                <select id="type" name="type" class="form-control">
-                                    <option @if($model->type == null) selected @endif value=" ">-- Chọn Loại Banner --</option>
-                                    <option @if($model->type == 1) selected @endif value="1">Banner bên phải</option>
-                                    <option @if($model->type == 2) selected @endif value="2">Banner bên Trái</option>
-                                    <option @if($model->type == 3) selected @endif value="3">Banner bên phía trên</option>
-                                    <option @if($model->type == 4) selected @endif value="4">Banner bên phía dưới</option>
-                                </select>
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="type">Loại Banner: </label>--}}
+{{--                                <select id="type" name="type" class="form-control">--}}
+{{--                                    <option @if($model->type == null) selected @endif value=" ">-- Chọn Loại Banner --</option>--}}
+{{--                                    <option @if($model->type == 1) selected @endif value="1">Banner bên phải</option>--}}
+{{--                                    <option @if($model->type == 2) selected @endif value="2">Banner bên Trái</option>--}}
+{{--                                    <option @if($model->type == 3) selected @endif value="3">Banner bên phía trên</option>--}}
+{{--                                    <option @if($model->type == 4) selected @endif value="4">Banner bên phía dưới</option>--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
 
                             <div class="form-group">
                                 <label for="position">Vị trí Banner: </label>
                                 <select id="position" name="position" class="form-control">
                                     <option @if($model->type == null) selected @endif value=" ">-- Chọn Vị trí Banner --</option>
-                                    <option @if($model->position == 1) selected @endif value="1">1</option>
-                                    <option @if($model->position == 2) selected @endif value="2">2</option>
-                                    <option @if($model->position == 3) selected @endif value="3">3</option>
-                                    <option @if($model->position == 4) selected @endif value="4">4</option>
+                                    @foreach($banpo as $item)
+                                        <option @if($model->position_id == $item->id) selected @endif value="{{ $item->id }}">{{ $item->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 

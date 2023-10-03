@@ -6,7 +6,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4">
                     <div class="header__info">
                         <div class="logo">
-                            <a href="index.html" class="logo-image"><img src="{{asset('frontend')}}/assets/img/logo/logo1.png" alt="logo"></a>
+                            <a href="{{route('index')}}" class="logo-image"><img src="{{asset('frontend')}}/assets/img/logo/logo1.png" alt="logo"></a>
                         </div>
                     </div>
                 </div>

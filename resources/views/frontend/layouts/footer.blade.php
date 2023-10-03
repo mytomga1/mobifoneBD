@@ -8,22 +8,33 @@
                     <div class="col">
                         <div class="features-2__item">
                             <div class="features-2__icon mr-20">
-                                <i class="fal fa-truck"></i>
+                                <i class="fal fa-rocket"></i>
                             </div>
                             <div class="features-2__content">
-                                <h6>Miễn phí Vận Chuyển</h6>
-                                <p>Cho tất cả đơn hàng từ 3tr</p>
+                                <h6>NGPON & XGSPON</h6>
+                                <p>Áp Dụng Công Nghệ Hiện Đại Nhất Hiện Nay</p>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="features-2__item">
                             <div class="features-2__icon mr-20">
-                                <i class="fal fa-money-check"></i>
+                                <i class="fal fa-plug"></i>
                             </div>
                             <div class="features-2__content">
-                                <h6>SAFE PAYMENT</h6>
-                                <p>100% secure payment</p>
+                                <h6>TÍN HIỆU ỔN ĐỊNH</h6>
+                                <p>Không bị suy hao tín hiệu bởi nhiễu điện tử hay thời tiết</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="features-2__item">
+                            <div class="features-2__icon mr-20">
+                                <i class="fal fa-cogs"></i>
+                            </div>
+                            <div class="features-2__content">
+                                <h6>NÂNG CẤP</h6>
+                                <p>Nâng cấp băng thông dễ dàng</p>
                             </div>
                         </div>
                     </div>
@@ -41,22 +52,11 @@
                     <div class="col">
                         <div class="features-2__item">
                             <div class="features-2__icon mr-20">
-                                <i class="fal fa-hand-holding-usd"></i>
-                            </div>
-                            <div class="features-2__content">
-                                <h6>Chính Sách Đổi Trả</h6>
-                                <p>Nếu sản phẩm gặp lỗi</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="features-2__item">
-                            <div class="features-2__icon mr-20">
                                 <i class="fad fa-user-headset"></i>
                             </div>
                             <div class="features-2__content">
-                                <h6>FRIENDLY SERVICES</h6>
-                                <p>Đảm bảo sự hài lòng trong 30 ngày</p>
+                                <h6>DỊCH VỤ THÂN THIỆN</h6>
+                                <p>Tư vấn và xử lý nhanh chóng khi gặp sự cố</p>
                             </div>
                         </div>
                     </div>
@@ -82,9 +82,9 @@
                                     <a href="#"><img src="{{asset('frontend')}}/assets/img/brand/app_android.png" alt=""></a>
                                 </div>
                                 <div class="social-icon social-icon-2">
-                                    <a href="https://www.facebook.com/trung.lethanh.9480" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.facebook.com/mobifone8.tamdangcap" class="facebook"><i class="fab fa-facebook-f"></i></a>
                                     <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
-                                    <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                                    <a href="https://www.youtube.com/@MobifoneOnline" class="youtube"><i class="fab fa-youtube"></i></a>
                                     <a href="#" class="rss"><i class="fas fa-rss"></i></a>
                                 </div>
                             </div>
@@ -154,33 +154,6 @@
                                     </form>
                                 </div>
                                 <p class="provide-text mt-20">Bằng cách cung cấp địa chỉ email của bạn, bạn đồng ý với<br> <a href="#">Chính sách bảo mật</a> và <a href="#">Điều khoản dịch vụ</a> .</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer__bottom-2">
-            <div class="container custom-conatiner">
-                <div class="footer__bottom-content footer__bottom-content-2 pt-50 pb-50">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="footer__links footer__links-d text-center mb-25">
-                                <p>
-                                    <a href="#">About Us</a>
-                                    <a href="#">Giao hàng & Trả hàng</a>
-                                    <a href="faq.html">Chính sách bảo mật</a>
-                                    <a href="#">Help</a>
-                                    <a href="contact.html">Theo dõi đơn hàng</a>
-                                    <a href="#">Liên Hệ</a>
-                                    <a href="#">FAQs </a>
-                                </p>
-                            </div>
-                            <div class="payment-image text-center mb-25">
-                                <a href="#"><img src="{{asset('frontend')}}/assets/img/payment/payment.png" alt=""></a>
-                            </div>
-                            <div class="copy-right-area copy-right-area-2 text-center">
-                                <p>Copyright © <span>Shopbee.</span> Đã đăng ký Bản quyền. Được cung cấp bởi <a href="#"><span class="main-color">Theme_Pure.</span></a></p>
                             </div>
                         </div>
                     </div>

@@ -198,7 +198,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col">
                     <div class="features__item d-flex white-bg">
                         <div class="features__icon mr-20">
@@ -210,7 +209,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col">
                     <div class="features__item features__item-last d-flex white-bg">
                         <div class="features__icon mr-20">
@@ -222,7 +220,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -269,6 +266,6 @@
     })
 </script>
 
-@yield('js'){{-- kích hoạt @section('validate') bên create.blade--}}
+@yield('js') {{-- kích hoạt @section('validate') bên create.blade--}}
 </body>
 </html>

@@ -23,6 +23,9 @@ Route::get('/tin-tuc/{slug}', [\App\Http\Controllers\HomeController::class, 'Art
 
 Route::get('/404', [\App\Http\Controllers\HomeController::class, 'errorPage404'])->name('error-page404');
 
+Route::get('/lien-he', [\App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
+Route::post('/lien-he', [\App\Http\Controllers\HomeController::class, 'contactPost'])->name('contactPost');
+
 //[Admin Route]
 
 Route::get('/admin/login', [\App\Http\Controllers\AdminController::class, 'login'])->name('login');

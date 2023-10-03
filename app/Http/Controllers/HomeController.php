@@ -6,9 +6,12 @@ use App\Models\Articles;
 use App\Models\Banner;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Contact;
 use App\Models\Product;
 
 
+use App\Models\Settings;
+use App\Models\Vendor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
@@ -19,7 +22,16 @@ class HomeController extends Controller
 
     public  function  __construct()
     {
+        $setting = Settings::first();
+
         $this -> categories = Category::where(['is_active' => 1])->where('deleted_at', null)->where('type', 1)->get();
+
+        // Lấy dữ liệu - Banner, có trạng thái là hiển thị
+        $banners = Banner::where(['is_active' => 1])
+            ->where('deleted_at', null)
+            ->where('position_id', 1)
+            ->orderBy('id')
+            ->get();
 
         $articles = Articles::where(['is_active' => 1])
             ->where('deleted_at', null)
@@ -27,8 +39,18 @@ class HomeController extends Controller
             ->limit(6)
             ->get();
 
+        $vendorFooter = Vendor::where(['is_active' => 1])
+            ->where('deleted_at', null)
+            // where('type', 5)
+            //->orderBy('created_at')
+            ->orderBy('id')
+            ->get();
+
         View::share('categories', $this->categories);
+        View::share('banners', $banners);
         View::share('articles', $articles);
+        View::share('vendorFooter', $vendorFooter);
+        View::share('setting', $setting);
 
     }
     public function index(){
@@ -160,6 +182,38 @@ class HomeController extends Controller
         }
 
         return view('frontend.article-detail',['article'=>$article]);
+    }
+
+    // Controller Trang liên hệ
+    public function contact()
+    {
+        return view('frontend.contact');
+    }
+
+    // Controller chức năng thêm liên hệ
+    public function contactPost(Request $request)
+    {
+        // validate form
+        $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'content' => 'required',
+        ],[
+            'name.required' => 'Bạn cần phải nhập vào tên',
+            'email.required' => 'Bạn chưa nhập email',
+            'phone.required' => 'Bạn chưa nhập SĐT',
+            'content.required' => 'Bạn chưa nhập gói đăng ký ',
+        ]);
+
+        $model = new Contact();
+        $model->name = $request->input('name');
+        $model->phone = $request->input('phone');
+        $model->email = $request->input('email');
+        $model->content = $request->input('content');
+        $model->save();
+
+        return redirect('/lien-he')->with('msgContact', 'Gửi liên hệ thành công !');
     }
 
 

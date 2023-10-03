@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Models\Bannerposition;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 /**
@@ -56,7 +57,8 @@ class BannerController extends Controller
      */
     public function create()
     {
-        return view('backend.banner.create');
+        $bannerposition = Bannerposition::all();
+        return view('backend.banner.create', ['bannerposition' => $bannerposition]);
     }
 
     /**
@@ -115,8 +117,8 @@ class BannerController extends Controller
 
         $banner->url = $request->input('url');
         $banner->target = $request->input('target');
-        $banner->type = $request->input('type');
-        $banner->position = $request->input('position');
+//        $banner->type = $request->input('type');
+        $banner->position_id = $request->input('position');
         $banner->is_active = $request->input('is_active');
         $banner->description = $request->input('description');
 
@@ -149,9 +151,10 @@ class BannerController extends Controller
     public function edit($id)
     {
         $model = Banner::findOrFail($id);
+        $banpo = Bannerposition::all();
 
         // sau khi tìm dữ liệu thành công, bắt đầu chuyên dữ liệu đó sang view edit
-        return view('backend.banner.edit', ['model'=>$model]);
+        return view('backend.banner.edit', ['model'=>$model],['banpo'=>$banpo]);
     }
 
     /**
@@ -192,8 +195,8 @@ class BannerController extends Controller
 
         $banner->url = $request->input('url');
         $banner->target = $request->input('target');
-        $banner->type = $request->input('type');
-        $banner->position = $request->input('position');
+//        $banner->type = $request->input('type');
+        $banner->position_id = $request->input('position');
         $banner->is_active = $request->input('is_active');
         $banner->description = $request->input('description');
 

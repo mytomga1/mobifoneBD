@@ -73,25 +73,24 @@
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <label for="type">Loại Banner: </label>
-                                <select id="type" name="type" class="form-control">
-                                    <option value="">-- Chọn Loại Banner --</option>
-                                    <option value="1">Banner bên phải</option>
-                                    <option value="2">Banner bên Trái</option>
-                                    <option value="3">Banner bên phía trên</option>
-                                    <option value="4">Banner bên phía dưới</option>
-                                </select>
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="type">Loại Banner: </label>--}}
+{{--                                <select id="type" name="type" class="form-control">--}}
+{{--                                    <option value="0">-- Chọn Loại Banner --</option>--}}
+{{--                                    <option value="1">Banner bên phải</option>--}}
+{{--                                    <option value="2">Banner bên Trái</option>--}}
+{{--                                    <option value="3">Banner bên phía trên</option>--}}
+{{--                                    <option value="4">Banner bên phía dưới</option>--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
 
                             <div class="form-group">
                                 <label for="position">Vị trí Banner: </label>
                                 <select id="position" name="position" class="form-control">
-                                    <option value="">-- Chọn Vị trí Banner --</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
+                                    <option value="0">-- Chọn Vị trí Banner --</option>
+                                    @foreach($bannerposition as $item)
+                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
 

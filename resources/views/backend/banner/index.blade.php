@@ -44,7 +44,7 @@
                                 <th scope="col">Id</th>
                                 <th scope="col">Hình Ảnh</th>
                                 <th scope="col">Tên</th>
-                                <th scope="col">Loại</th>
+                                <th scope="col">Trạng Thái</th>
                                 <th scope="col">#</th>
                             </tr>
                             </thead>
@@ -65,19 +65,7 @@
                                     <td>{{$item->title}}</td>
 
                                     <td>
-                                    <span class="badge bg-green-gradient">
-                                        @if($item->type == null)
-                                            Chưa Chọn
-                                        @elseif($item->type == 1)
-                                            Banner bên phải
-                                        @elseif($item->type == 2)
-                                            Banner bên trái
-                                        @elseif($item->type == 3)
-                                            Banner phía trên
-                                        @else($item->type == 4)
-                                            Banner phía dưới
-                                        @endif
-                                    </span>
+                                        {!! $item->is_active == 1 ? '<span class="badge bg-green">ON</span>' : '<span class="badge bg-danger">OFF</span>' !!}
                                     </td>
 
                                     <td class="action" >

@@ -21,7 +21,7 @@
                             <div class="product__item mb-20 swiper-slide">
                                 <div class="product__thumb fix">
                                     <div class="blog-image w-img">
-                                        <a href="#"> {{-- add chuyển trang chi tiết bài viết theo link slug--}}
+                                        <a href="{{ route('article-detail', ['slug' =>$article->slug]) }}"> {{-- add chuyển trang chi tiết bài viết theo link slug--}}
                                             @if($article->image && file_exists(public_path($article->image)))
                                                 <img src="{{ asset($article->image) }}" width="277" height="173" title="{{$article->title}}" alt="">
                                             @else
