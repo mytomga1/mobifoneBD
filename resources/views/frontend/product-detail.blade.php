@@ -52,7 +52,7 @@
                             <h6>{{ $product->name }}</h6>
 
                             <div class="price mb-10">
-                                <span style="color: red">{{ number_format($product->sale,0,",",".") }} đ</span>
+                                <span style="color: red">{{ number_format($product->price,0,",",".") }} đ</span>
                             </div>
                             <div class="features-des mb-20 mt-10">
                                 {!! $product->summary !!}
@@ -63,7 +63,7 @@
                                 @csrf
                                 <input type="hidden" value="{{ $product->id }}" name="id">
                                 <input type="hidden" value="{{ $product->name }}" name="name">
-                                <input type="hidden" value="{{ $product->sale }}" name="price">
+                                <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value="{{ $product->image }}"  name="image">
 
                                 <div class="cart-option mb-15">
@@ -134,7 +134,7 @@
                     </div>
                     <!-- chi tiết tab cấu hình sản phẩm -end -->
 
-                    <!-- chi tiết tab đánh giá sản phẩm -start -->
+                    <!-- chi tiết tab đăng ký sản phẩm -start -->
                     <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
                         <div class="product__details-review">
                             <div class="row">
@@ -167,7 +167,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-xxl-12">
-                                                        <textarea placeholder="Ghi chú gói cước muốn đăng ký" class="comment-input comment-textarea"></textarea>
+                                                        <textarea placeholder="Ghi chú gói cước muốn đăng ký" class="comment-input comment-textarea">Tôi Muốn đăng ký gói {{ $product->name }} </textarea>
                                                     </div>
                                                     <div class="col-xxl-12">
                                                         <div class="comment-submit">
@@ -248,7 +248,7 @@
                                             @enderror
                                         </div>
 
-                                        <button id="input_2" type="submit" class="post-comment form-buttons-center shutter-btn"><i class="fal fa-comments"></i>Gửi Liên Hệ</button>
+                                        <button id="input_2" type="submit" class="post-comment form-buttons-center shutter-btn site-btn btnSend"><i class="fal fa-comments"></i>Gửi Liên Hệ</button>
 
                                         <li style="display:none">
                                             Should be Empty:

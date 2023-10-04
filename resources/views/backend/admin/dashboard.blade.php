@@ -102,6 +102,22 @@
                     </div>
                 </div>
             @endif
+
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3>{{$numOrder}}<sup style="font-size: 20px"></sup></h3>
+
+                        <p>Đơn Hàng</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-shopping-cart"></i>
+                    </div>
+                    <a href="{{route('admin.order.index')}}" class="small-box-footer">Chi Tiết <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+
         </div>
         <!-- /.row -->
         <!-- Main row -->
@@ -141,48 +157,7 @@
                         <div id="calendar" style="width: 100%"></div>
                     </div>
                     <!-- /.box-body -->
-                    <div class="box-footer text-black">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <!-- Progress bars -->
-                                <div class="clearfix">
-                                    <span class="pull-left">Task #1</span>
-                                    <small class="pull-right">90%</small>
-                                </div>
-                                <div class="progress xs">
-                                    <div class="progress-bar progress-bar-green" style="width: 90%;"></div>
-                                </div>
 
-                                <div class="clearfix">
-                                    <span class="pull-left">Task #2</span>
-                                    <small class="pull-right">70%</small>
-                                </div>
-                                <div class="progress xs">
-                                    <div class="progress-bar progress-bar-green" style="width: 70%;"></div>
-                                </div>
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-6">
-                                <div class="clearfix">
-                                    <span class="pull-left">Task #3</span>
-                                    <small class="pull-right">60%</small>
-                                </div>
-                                <div class="progress xs">
-                                    <div class="progress-bar progress-bar-green" style="width: 60%;"></div>
-                                </div>
-
-                                <div class="clearfix">
-                                    <span class="pull-left">Task #4</span>
-                                    <small class="pull-right">40%</small>
-                                </div>
-                                <div class="progress xs">
-                                    <div class="progress-bar progress-bar-green" style="width: 40%;"></div>
-                                </div>
-                            </div>
-                            <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-                    </div>
                 </div>
                 <!-- end Calendar -->
 

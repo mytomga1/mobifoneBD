@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 //use App\Models\Product;
 use App\Models\Articles;
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -21,12 +22,14 @@ class AdminController extends Controller
         $numProduct = Product::count();
         $numUser = User::count();
         $numCategory = Category::count();
+        $numOrder = Order::count();
 
         return view('backend.admin.dashboard', [
             'numArticle' => $numArticle,
             'numProduct' => $numProduct,
             'numUser' => $numUser,
-            'numCategory' => $numCategory
+            'numCategory' => $numCategory,
+            'numOrder' => $numOrder
         ]);
     }
 

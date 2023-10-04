@@ -23,6 +23,10 @@ Route::get('/tin-tuc/{slug}', [\App\Http\Controllers\HomeController::class, 'Art
 
 Route::get('/404', [\App\Http\Controllers\HomeController::class, 'errorPage404'])->name('error-page404');
 
+
+Route::get('/dang-ky', [\App\Http\Controllers\OrderController::class, 'order'])->name('order');
+//Route::post('/dang-ky', [\App\Http\Controllers\OrderController::class, 'orderPost'])->name('orderPost');
+
 Route::get('/lien-he', [\App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
 Route::post('/lien-he', [\App\Http\Controllers\HomeController::class, 'contactPost'])->name('contactPost');
 
@@ -73,4 +77,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function (){//
 
     Route::resource('/setting', \App\Http\Controllers\SettingController::class);
     Route::resource('/contract', \App\Http\Controllers\ContactController::class);
+
+    Route::resource('/order', \App\Http\Controllers\OrderController::class);
+    Route::post('order/restore/{order}', [\App\Http\Controllers\OrderController::class, 'restore'])->name('order.restore');
+
 });

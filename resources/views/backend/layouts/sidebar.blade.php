@@ -92,12 +92,6 @@
                 </ul>
             </li>
 
-            <li>
-                <a href="{{asset('/admin')}}">
-                    <i class="fa fa-shopping-cart"></i> <span>Quản Lý Đơn Hàng</span>
-                </a>
-            </li>
-
             @if(\Auth::user()->role_id == 1)
                 <li class="treeview" style="height: auto;">
                     <a href="#">
@@ -140,7 +134,8 @@
                 </li>
             @endif
 
-            <li><a href="{{route('admin.contract.index')}}"><i class="fa fa-envelope"></i> <span>Liên Hệ</span></a></li>
+            <li><a href="{{route('admin.order.index')}}"><i class="fa fa-shopping-cart"></i> <span>Quản Lý Đơn Hàng</span></a></li>
+            <li><a href="{{route('admin.contract.index')}}"><i class="fa fa-envelope"></i> <span>Quản Lý Phản ánh</span></a></li>
 
             {{--            <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>--}}
             {{--            <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>--}}

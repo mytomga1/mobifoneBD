@@ -76,7 +76,7 @@
                             <div class="form-group">
                                 <label for="position">Vị trí Banner: </label>
                                 <select id="position" name="position" class="form-control">
-                                    <option @if($model->type == null) selected @endif value=" ">-- Chọn Vị trí Banner --</option>
+                                    <option @if($model->type == null) selected @endif value="0">-- Chọn Vị trí Banner --</option>
                                     @foreach($banpo as $item)
                                         <option @if($model->position_id == $item->id) selected @endif value="{{ $item->id }}">{{ $item->name }}</option>
                                     @endforeach

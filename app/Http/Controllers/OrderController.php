@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use App\Models\Order_status;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -11,9 +13,28 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $params = $request->all();
+        $filter_type = $params['filter_type'] ?? 2;
+
+        if ($filter_type == 1) {
+            $data = Order::withTrashed()->latest()->get(); // show tất cả dữ liệu nếu $filter_type == 1
+            //$data = Banner::withTrashed()->latest()->paginate(10); // show tất cả dữ liệu nếu $filter_type == 1
+        } elseif ($filter_type == 2) {
+            $data = Order::latest()->get(); // ko show dữ liệu những thằng bị softDelete nếu $filter_type == 2
+            //$data = Banner::latest()->paginate(10); // ko show dữ liệu những thằng bị softDelete nếu $filter_type == 2
+        } else {
+            $data = Order::onlyTrashed()->latest()->get(); // chỉ show dữ liệu những thằng bị softDelete nếu $filter_type == 3
+            //$data = Banner::onlyTrashed()->latest()->paginate(10); // chỉ show dữ liệu những thằng bị softDelete nếu $filter_type == 3
+
+            $data = Order::onlyTrashed()->latest()->get();
+        }
+
+
+        $order_status = Order_status::all();
+
+        return view('backend.order.index', ['data' => $data, 'order_status'=>$order_status, 'filter_type' => $filter_type]);
     }
 
     /**
@@ -23,7 +44,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.order.create');
     }
 
     /**
@@ -56,7 +77,10 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $order_status = Order_status::all();
+        $model = Order::findOrFail($id);
+
+        return view('backend.order.edit', ['model' => $model, 'order_status'=>$order_status]);
     }
 
     /**
@@ -68,7 +92,15 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $order = Order::findOrFail($id);
+
+        $order->order_status_id = $request->input('order_status');
+
+        $order->updated_at = date('Y-m-d H:i:s');
+
+        $order->save();
+
+        return redirect()->route('admin.order.index');
     }
 
     /**
@@ -79,6 +111,22 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Order::destroy($id);
+
+        return response()->json([
+            'status' => true,
+            'msg' => 'Xóa thành công'
+        ]);
+    }
+
+    public function restore($id)
+    {
+        $Order = Order::onlyTrashed()->findOrFail($id);
+        $Order ->restore(); // truyền id đã bị xoá vào hàm khôi phục
+
+        return response()->json([
+            'status' => true,
+            'msg' => 'Khôi phục thành công'
+        ]);
     }
 }
