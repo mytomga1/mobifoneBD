@@ -86,9 +86,7 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
-            'stock' => 'required|max:255',
             'price' => 'required|max:255',
-            'sale' => 'required|max:255',
             'category_id' => 'required|max:255',
             'vendor_id' => 'required|max:255',
             'summary' => 'required',
@@ -97,9 +95,7 @@ class ProductController extends Controller
             'name.required' => 'Bạn cần phải nhập tên sản phẩm',
             'image.required' => 'Bạn chưa chọn file ảnh',
             'image.image' => 'File ảnh phải có dạng jpeg,png,jpg,gif,svg',
-            'stock' => 'Bạn cần phải nhập số lượng sản phẩm',
             'price' => 'Bạn cần phải nhập giá sản phẩm',
-            'sale' => 'Bạn cần phải nhập giá khuyến mãi sản phẩm',
             'category_id' => 'Bạn cần phải chọn danh mục',
             'vendor_id' => 'Bạn cần phải chọn nhà cung cấp',
             'summary' => 'Bạn cần phải nhập tóm tắt sp',
@@ -131,9 +127,9 @@ class ProductController extends Controller
             $product->image = $path_upload.$filename;
         }
 
-        $product->stock = $request->input('stock');
+//        $product->stock = $request->input('stock');
         $product->price = Str::remove(',', $request->input('price')); // sử dụng hàm Str::remove để xoá dấu , trước khi save giá tiền vào db vd 33,33 => 3333
-        $product->sale = Str::remove(',', $request->input('sale'));
+//        $product->sale = Str::remove(',', $request->input('sale'));
         $product->url = $request->input('url');
         $product->category_id = $request->input('category_id');
 //        $product->brand_id = $request->input('brand_id');
@@ -212,18 +208,14 @@ class ProductController extends Controller
         // xác thực dữ liệu - validate từ phía server (ưu điểm user ko thể tắt validate - nhược điểm gây chậm server)
         $request->validate([
             'name' => 'required|max:255',
-            'stock' => 'required|max:255',
             'price' => 'required|max:255',
-            'sale' => 'required|max:255',
             'category_id' => 'required|max:255',
             'vendor_id' => 'required|max:255',
             'summary' => 'required',
             'description' => 'required',
         ],[
             'name.required' => 'Bạn cần phải nhập tên sản phẩm',
-            'stock' => 'Bạn cần phải nhập số lượng sản phẩm',
             'price' => 'Bạn cần phải nhập giá sản phẩm',
-            'sale' => 'Bạn cần phải nhập giá khuyến mãi sản phẩm',
             'category_id' => 'Bạn cần phải chọn danh mục',
             'vendor_id' => 'Bạn cần phải chọn nhà cung cấp',
             'summary' => 'Bạn cần phải nhập tóm tắt sp',
@@ -254,9 +246,9 @@ class ProductController extends Controller
             //lưu lại trên
             $product->image = $path_upload.$filename;
         }
-        $product->stock = $request->input('stock');
+//        $product->stock = $request->input('stock');
         $product->price = Str::remove(',', $request->input('price')); // sử dụng hàm Str::remove để xoá dấu , trước khi save giá tiền vào db vd 33,33 => 3333
-        $product->sale = Str::remove(',', $request->input('sale'));
+//        $product->sale = Str::remove(',', $request->input('sale'));
         $product->url = $request->input('url');
         $product->category_id = $request->input('category_id');
 //        $product->brand_id = $request->input('brand_id');

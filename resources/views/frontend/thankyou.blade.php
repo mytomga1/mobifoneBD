@@ -9,11 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('frontend')}}/assets/img/favicon.png">
-
-    <meta charset="utf-8">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- CSS here -->
     <link rel="stylesheet" href="{{asset('frontend')}}/assets/css/preloader.css">
     <link rel="stylesheet" href="{{asset('frontend')}}/assets/css/bootstrap.css">
@@ -173,9 +168,36 @@
 <div class="body-overlay"></div>
 <!-- offcanvas area end -->
 <main>
-    <!-- BANNER slider-area-start========================================================================== -->
-    @include('frontend.layouts.banner-silder')
-    <!-- BANNER slider-area-end ============================================================================-->
+
+    <!-- page-banner-area-start -->
+    <div class="page-banner-area page-banner-height" data-background="{{asset('frontend')}}/img/banner/banner-internet.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="page-banner-content text-center">
+                        <h3 class="breadcrumb-title">Thank You</h3>
+                        <div class="breadcrumb-two">
+                            <nav>
+                                <nav class="breadcrumb-trail breadcrumbs">
+                                    <h4 style="color: #fff0f0">Cám ơn Quý Khách đã đăng ký thành công </h4>
+                                    <h4 style="color: #fff0f0">Chúng tôi đã ghi nhận đơn đăng ký của quý khách, nhân viên sẻ liên hệ với quý khách để tư vấn. </h4>
+                                    <br/>
+                                    <h4 style="color: #fff0f0">mọi thắc mắc xin liên hệ qua 0901600668 </h4>
+                                    <br/>
+                                    <ul class="breadcrumb-menu">
+                                        <li class="breadcrumb-trail">
+                                            <a href="{{route('index')}}"><span style="font-size: 30px">>> Về lại Trang chủ <<</span></a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page-banner-area-end -->
 
     <!-- 4 icon__area-start -->
     <section class="features__area pt-20">
@@ -229,6 +251,126 @@
         </div>
     </section>
     <!-- 4 icon__area-end -->
+
+    <!-- location-area-start -->
+    <div class="location-area pt-70 pb-25">
+        <div class="container">
+            <div class="row mb-25">
+                <div class="col-xl-12">
+                    <div class="abs-section-title text-center">
+                        <span style="color: red">MOBIFONE BÌNH DƯƠNG</span>
+                        <h4>MOBIFIBER TRUY CẬP INTERNET TỐC ĐỘ CAO</h4>
+                        <p>Với mong muốn mang lại cho người dân cả nước có điều kiện tốt nhất tiếp cận internet với tốc độ "siêu nhanh" và giá ưu đãi, MobiFone đã xây dựng đường
+                            <br> trục truyền dẫn cáp quang riêng với tốc độ 300Gbps và kết hợp với cổng kết nối quốc tế riêng biệt ILL để tạo ra Làn gió mới trên thị trường Internet cáp quang
+                        </p>
+                        <br/>
+                        <br/>
+                        <!-- 2 banner lớn & dài__area-start -->
+                        <section class="banner__area banner__area-d pb-10"  >
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-12">
+                                        <div class="banner__item p-relative w-img mb-30">
+                                            <div class="banner__img">
+                                                <a href="#"><img src="{{asset('frontend')}}/banner-019.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-12">
+                                        <div class="banner__item p-relative mb-30 w-img">
+                                            <div class="banner__img">
+                                                <a href="#"><img src="{{asset('frontend')}}/banner-020.jpg" alt=""></a>
+                                            </div>
+                                            {{--                        <div class="banner__content">--}}
+                                            {{--                            <span>Featured Products</span>--}}
+                                            {{--                            <h6><a href="product-details.html">Accessories iPhone</a></h6>--}}
+                                            {{--                            <p>Free Shipping All Order Over $99</p>--}}
+                                            {{--                        </div>--}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- 2 banner lớn & dà__area-end -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6 col-lg-3 col-md-6">
+                    <div class="location-item mb-30">
+                        <div class="location-image w-img mb-20">
+                            <img src="assets/img/location/location-1.jpg" alt="">
+                        </div>
+                        <h6>Chi nhánh Đồng Nai</h6>
+                        <div class="sm-item-loc sm-item-border mb-20">
+                            <div class="sml-icon mr-20">
+                                <i class="fal fa-map-marker-alt"></i>
+                            </div>
+                            <div class="sm-content">
+                                <span>Địa Chỉ</span>
+                                <p>{{$setting -> address2}}  </p>
+                            </div>
+                        </div>
+                        <div class="sm-item-loc sm-item-border mb-20">
+                            <div class="sml-icon mr-20">
+                                <i class="fal fa-phone-alt"></i>
+                            </div>
+                            <div class="sm-content">
+                                <span>mobile</span>
+                                <p><a href="#">{{$setting -> hotline}}</a></p>
+                            </div>
+                        </div>
+                        <div class="sm-item-loc mb-20">
+                            <div class="sml-icon mr-20">
+                                <i class="fal fa-envelope"></i>
+                            </div>
+                            <div class="sm-content">
+                                <span>Mail</span>
+                                <p><a href="{{$setting -> email}}">{{$setting -> email}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-3 col-md-6">
+                    <div class="location-item mb-30">
+                        <div class="location-image w-img mb-20">
+                            <img src="assets/img/location/location-2.jpg" alt="">
+                        </div>
+                        <h6>Chi nhánh Bình Dương</h6>
+                        <div class="sm-item-loc sm-item-border mb-20">
+                            <div class="sml-icon mr-20">
+                                <i class="fal fa-map-marker-alt"></i>
+                            </div>
+                            <div class="sm-content">
+                                <span>Địa Chỉ</span>
+                                <p>{{$setting -> address}}</p>
+                            </div>
+                        </div>
+                        <div class="sm-item-loc sm-item-border mb-20">
+                            <div class="sml-icon mr-20">
+                                <i class="fal fa-phone-alt"></i>
+                            </div>
+                            <div class="sm-content">
+                                <span>mobile</span>
+                                <p><a href="#">(+84) {{$setting -> phone}}</a></p>
+                            </div>
+                        </div>
+                        <div class="sm-item-loc mb-20">
+                            <div class="sml-icon mr-20">
+                                <i class="fal fa-envelope"></i>
+                            </div>
+                            <div class="sm-content">
+                                <span>Mail</span>
+                                <p><a href="{{$setting -> email}}">{{$setting -> email}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- location-area-end -->
 
     @yield('content')
 

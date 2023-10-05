@@ -22,7 +22,7 @@ class AdminController extends Controller
         $numProduct = Product::count();
         $numUser = User::count();
         $numCategory = Category::count();
-        $numOrder = Order::count();
+        $numOrder = Order::where('order_status_id',1)->count();
 
         return view('backend.admin.dashboard', [
             'numArticle' => $numArticle,

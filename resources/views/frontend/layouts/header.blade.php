@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-xl-5 col-lg-4 d-none d-lg-block">
                     <div class="header__search">
-                        <form action="#">
+                        <form action="#" hidden="">
                             <div class="header__search-box">
                                 <input class="search-input" type="text" placeholder="I'm shopping for...">
                                 <button class="button" type="submit"><i class="far fa-search"></i></button>

@@ -76,9 +76,10 @@
                                 <div class="form-group">
                                     <label for="role_id">Vai trò</label>
                                     <select class="form-control" name="role_id" id="role_id">
-                                        <option value="">-- chọn --</option>
-                                        <option {{ $model->role_id == 1 ? 'selected' : '' }} value="1">Administrator</option>
-                                        <option {{ $model->role_id == 2 ? 'selected' : '' }} value="2">Member</option>
+                                        <option value="">-- Chọn Vai Trò --</option>
+                                        @foreach($userRole as $item)
+                                            <option @if($model->role_id == $item->id) selected @endif value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 

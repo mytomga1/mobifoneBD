@@ -7,6 +7,7 @@ use App\Models\Banner;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Contact;
+use App\Models\Order;
 use App\Models\Product;
 
 
@@ -38,6 +39,12 @@ class HomeController extends Controller
             ->where('position_id', 2) // Banner này sẽ ở vị trí bên trang danh sách sản phẩm
             ->get();
 
+        $banners3 = Banner::where(['is_active' => 1])
+            ->where('deleted_at', null)
+            ->where('position_id', 4) // 3 Banner trang home khu vực phía dưới
+            ->limit(3)
+            ->get();
+
         $articles = Articles::where(['is_active' => 1])
             ->where('deleted_at', null)
             ->orderBy('id')
@@ -48,6 +55,7 @@ class HomeController extends Controller
         View::share('categories', $this->categories);
         View::share('banners', $banners);
         View::share('banners2', $banners2);
+        View::share('banners3', $banners3);
         View::share('articles', $articles);
         View::share('setting', $setting);
 
@@ -152,6 +160,21 @@ class HomeController extends Controller
         return view('frontend.productList', ['category' => $category, 'products' => $list_products, 'branchs' => $branchs,'arr_filter_brands' => json_encode($branch_ids)]);
     }
 
+
+    // Controller Trang Chi tiết Banner
+    public  function bannerDetail($slug){
+
+        // select * form Articles where slug = slug and is_active = 1
+        $banner = Banner::where('slug', $slug)->where('is_active', 1)->first();
+
+        if($banner == null){
+            return view('frontend.404');
+        }
+
+        return view('frontend.banner-detail',['banner'=>$banner]);
+    }
+
+
     public function product(Request $request, $slug)
     {
         $product = Product::where('is_active', 1)->where('slug', $slug)->first();
@@ -163,12 +186,14 @@ class HomeController extends Controller
         return view('frontend.product-detail', ['product' => $product]);
     }
 
+
     public function articles(){
 
-        $articles = Articles::latest()->paginate(6);
+        $articles = Articles::latest()->paginate(3);
 
         return view('frontend.articleList',['articles'=>$articles]);
     }
+
 
     // Controller Trang Chi tiết bài viết
     public  function ArticleDetail($slug){
@@ -183,11 +208,13 @@ class HomeController extends Controller
         return view('frontend.article-detail',['article'=>$article]);
     }
 
+
     // Controller Trang liên hệ
     public function contact()
     {
         return view('frontend.contact');
     }
+
 
     // Controller chức năng thêm liên hệ
     public function contactPost(Request $request)
@@ -215,6 +242,39 @@ class HomeController extends Controller
         return redirect('/lien-he')->with('msgContact', 'Gửi liên hệ thành công !');
     }
 
+    // Controller chức năng thêm order
+    public function orderPost(Request $request)
+    {
+        // validate form
+        $request->validate([
+            'fullname' => 'required|max:255',
+            'phone' => 'required',
+            'address' => 'required|max:255',
+            'note' => 'required',
+        ],[
+            'fullname.required' => 'Bạn chưa nhập họ và tên',
+            'phone.required' => 'Bạn chưa nhập SĐT',
+            'address.required' => 'Bạn chưa nhập địa chỉ',
+            'note.required' => 'Bạn chưa nhập gói đăng ký ',
+        ]);
+
+        $model = new Order();
+        $model->fullname = $request->input('fullname');
+        $model->phone = $request->input('phone');
+        $model->address = $request->input('address');
+        $model->note = $request->input('note');
+        $model->order_status_id = "1";
+        $model->save();
+
+//        return redirect('/dang-ky')->with('msgOrder', 'Cám ơn Quý Khách đăng đăng ký thành công, sẻ có nhân viên liên lạc bạn sau !');
+        return view('frontend.thankyou');
+    }
+
+
+    public function thankyoupage()
+    {
+        return view('frontend.thankyou');
+    }
 
     public function errorPage404()
     {

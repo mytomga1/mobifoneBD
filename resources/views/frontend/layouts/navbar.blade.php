@@ -42,7 +42,6 @@
 
                                 <li><a href="{{route('articles')}}">Khuyến Mãi</a></li>
                                 <li><a href="{{route('contact')}}">Liên Hệ</a></li>
-
                             </ul>
                         </nav>
                     </div>

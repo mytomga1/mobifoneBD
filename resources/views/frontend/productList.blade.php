@@ -132,35 +132,13 @@
                         <div class="tp-pagination text-center">
                             <div class="row">
                                 <div class="col-xl-12">
-                                    <div class="basic-pagination pt-30 pb-30">
-                                        <nav>
-                                            <ul>
-                                                <li>
-                                                    <a href="shop.html" class="active">1</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop.html">2</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop.html">3</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop.html">5</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop.html">6</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop.html">
-                                                        <i class="fal fa-angle-double-right"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </nav>
+                                    <div class=" pt-30 pb-30">
+                                        {!! $products->links()!!}
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

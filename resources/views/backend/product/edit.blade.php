@@ -67,10 +67,10 @@
                                 <img src="{{ asset('frontend\Img404.png') }}" width="100" height="75" alt="">
                             @endif
 
-                            <div class="form-group">
-                                <label for="stock">Số lượng :</label>
-                                <input value="{{ $product->stock }}" id="stock" name="stock" type="text" class="form-control" placeholder="">
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="stock">Số lượng :</label>--}}
+{{--                                <input value="{{ $product->stock }}" id="stock" name="stock" type="text" class="form-control" placeholder="">--}}
+{{--                            </div>--}}
 
                             <div class="form-group">
                                 <label for="price">Giá :</label>
@@ -81,14 +81,14 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="sale">Giá sale :</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                                    <input value="{{ $product->sale }}" id="sale" name="sale" type="text" class="form-control" placeholder="">
-                                    <span class="input-group-addon">VNĐ</span>
-                                </div>
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="sale">Giá sale :</label>--}}
+{{--                                <div class="input-group">--}}
+{{--                                    <span class="input-group-addon"><i class="fa fa-dollar"></i></span>--}}
+{{--                                    <input value="{{ $product->sale }}" id="sale" name="sale" type="text" class="form-control" placeholder="">--}}
+{{--                                    <span class="input-group-addon">VNĐ</span>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
                             <div class="form-group">
                                 <label for="url">Liên kết :</label>
@@ -241,21 +241,21 @@
                     document.getElementById('name').scrollIntoView();
                     return false;
                 }
-                if ($('#stock').val() === '') {
-                    $('#stock').notify('Bạn nhập chưa nhập số lượng','error');
-                    document.getElementById('stock').scrollIntoView();
-                    return false;
-                }
+                // if ($('#stock').val() === '') {
+                //     $('#stock').notify('Bạn nhập chưa nhập số lượng','error');
+                //     document.getElementById('stock').scrollIntoView();
+                //     return false;
+                // }
                 if ($('#price').val() === '') {
                     $('#price').notify('Bạn nhập chưa nhập giá','error');
                     document.getElementById('price').scrollIntoView();
                     return false;
                 }
-                if ($('#sale').val() === '') {
-                    $('#sale').notify('Bạn nhập chưa nhập giảm giá','error');
-                    document.getElementById('sale').scrollIntoView();
-                    return false;
-                }
+                // if ($('#sale').val() === '') {
+                //     $('#sale').notify('Bạn nhập chưa nhập giảm giá','error');
+                //     document.getElementById('sale').scrollIntoView();
+                //     return false;
+                // }
                 if ($('#category_id').val() === '0') {
                     $('#category_id').notify('Bạn nhập chưa chọn danh mục','error',{ position:"right" });
                     document.getElementById('category_id').scrollIntoView();{{--sử dụng scrollIntoView để trỏ đến khu bị lỗi--}}

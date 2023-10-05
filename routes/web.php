@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,14 +19,17 @@ Route::get('/',[\App\Http\Controllers\HomeController::class, 'index'])->name('in
 Route::get('/danh-muc/{category}', [\App\Http\Controllers\HomeController::class, 'category'])->name('category');
 Route::get('/chi-tiet-san-pham/{product}', [\App\Http\Controllers\HomeController::class, 'product'])->name('product');
 
+Route::get('/banner/{slug}', [\App\Http\Controllers\HomeController::class, 'bannerDetail'])->name('banner-detail');
+
 Route::get('/tin-tuc', [\App\Http\Controllers\HomeController::class, 'articles'])->name('articles');
 Route::get('/tin-tuc/{slug}', [\App\Http\Controllers\HomeController::class, 'ArticleDetail'])->name('article-detail');
 
 Route::get('/404', [\App\Http\Controllers\HomeController::class, 'errorPage404'])->name('error-page404');
+Route::get('/thank-you', [\App\Http\Controllers\HomeController::class, 'thankyoupage'])->name('thankyoupage');
 
 
-Route::get('/dang-ky', [\App\Http\Controllers\OrderController::class, 'order'])->name('order');
-//Route::post('/dang-ky', [\App\Http\Controllers\OrderController::class, 'orderPost'])->name('orderPost');
+//Route::get('/dang-ky', [\App\Http\Controllers\HomeController::class, 'orders'])->name('orders');
+Route::post('/dang-ky', [\App\Http\Controllers\HomeController::class, 'orderPost'])->name('orderPost');
 
 Route::get('/lien-he', [\App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
 Route::post('/lien-he', [\App\Http\Controllers\HomeController::class, 'contactPost'])->name('contactPost');

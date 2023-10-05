@@ -55,7 +55,28 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validate form
+        $request->validate([
+            'fullname' => 'required|max:255',
+            'phone' => 'required',
+            'address' => 'required|max:255',
+            'note' => 'required',
+        ],[
+            'fullname.required' => 'Bạn chưa nhập họ và tên',
+            'phone.required' => 'Bạn chưa nhập SĐT',
+            'address.required' => 'Bạn chưa nhập địa chỉ',
+            'note.required' => 'Bạn chưa nhập gói đăng ký ',
+        ]);
+
+        $model = new Order();
+        $model->fullname = $request->input('name');
+        $model->phone = $request->input('phone');
+        $model->address = $request->input('email');
+        $model->note = $request->input('content');
+        $model->order_status_id = 1;
+        $model->save();
+
+        return view('backend.order.index');
     }
 
     /**

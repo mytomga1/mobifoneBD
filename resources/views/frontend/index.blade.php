@@ -8,14 +8,14 @@
                 <div class="col-xl-6 col-lg-6 col-md-12">
                     <div class="banner__item p-relative w-img mb-30">
                         <div class="banner__img">
-                            <a href="product-details.html"><img src="{{asset('frontend')}}/banner-019.jpg" alt=""></a>
+                            <a href="#"><img src="{{asset('frontend')}}/banner-019.jpg" alt=""></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-12">
                     <div class="banner__item p-relative mb-30 w-img">
                         <div class="banner__img">
-                            <a href="product-details.html"><img src="{{asset('frontend')}}/banner-020.jpg" alt=""></a>
+                            <a href="#"><img src="{{asset('frontend')}}/banner-020.jpg" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -117,28 +117,21 @@
     <section class="banner__area pt-60 pb-25">
         <div class="container">
             <div class="row">
-                <div class="col-xl-4 col-lg-6 col-md-12">
-                    <div class="banner__item p-relative w-img mb-30">
-                        <div class="banner__img">
-                            <a href="product-details.html"><img src="{{asset('frontend')}}/assets/img/banner/mobifiber-banner2.jpg" alt=""></a>
+                @foreach($banners3 as $key => $banners3)
+                    <div class="col-xl-4 col-lg-6 col-md-12">
+                        <div class="banner__item p-relative w-img mb-30">
+                            <div class="banner__img">
+                                <a href="{{ route('banner-detail', ['slug' =>$banners3->slug]) }}"><img src=" @if($banners3->image && file_exists(public_path($banners3->image)))
+                                                           {{ asset($banners3->image) }}
+                                                       @else
+                                                           {{ asset('frontend\img\slider\02-slide-3.jpg') }}
+                                                       @endif
+                                                     " title="{{$banners3->name}}" alt="{{$banners3->title}}" href="{{ route('banner-detail', ['slug' =>$banners3->slug]) }}">
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- 2 Combo banner dài nhỏ__area-start -->
-                <div class="col-xl-4 col-lg-6 col-md-12">
-                    <div class="banner__item p-relative mb-30 w-img">
-                        <div class="banner__img">
-                            <a href="product-details.html"><img src="{{asset('frontend')}}/assets/img/banner/mobifiber-banner.jpg" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-6 col-md-12">
-                    <div class="banner__item p-relative mb-30 w-img">
-                        <div class="banner__img">
-                            <a href="product-details.html"><img src="{{asset('frontend')}}/assets/img/banner/mobifiber-banner3.jpg" alt=""></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

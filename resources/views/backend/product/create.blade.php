@@ -55,20 +55,20 @@
                                 <input type="file" name="image" id="image">
                             </div>
 
-                            <div class="form-group">
-                                <label for="stock">Số lượng</label>
-                                <input id="stock" name="stock" type="number" min="1" class="form-control" placeholder="">
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="stock">Số lượng</label>--}}
+{{--                                <input id="stock" name="stock" type="number" min="1" class="form-control" placeholder="">--}}
+{{--                            </div>--}}
 
                             <div class="form-group">
                                 <label for="price">Giá</label>
                                 <input id="price" name="price" type="text" class="form-control" placeholder="">
                             </div>
 
-                            <div class="form-group">
-                                <label for="sale">Giá sale</label>
-                                <input id="sale" name="sale" type="text" class="form-control" placeholder="">
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="sale">Giá sale</label>--}}
+{{--                                <input id="sale" name="sale" type="text" class="form-control" placeholder="">--}}
+{{--                            </div>--}}
 
                             <div class="form-group">
                                 <label for="url">Liên kết</label>
@@ -230,11 +230,11 @@
                     document.getElementById('price').scrollIntoView();
                     return false;
                 }
-                if ($('#sale').val() === '') {
-                    $('#sale').notify('Bạn nhập chưa nhập giảm giá','error');
-                    document.getElementById('sale').scrollIntoView();
-                    return false;
-                }
+                // if ($('#sale').val() === '') {
+                //     $('#sale').notify('Bạn nhập chưa nhập giảm giá','error');
+                //     document.getElementById('sale').scrollIntoView();
+                //     return false;
+                // }
                 if ($('#category_id').val() === '0') {
                     $('#category_id').notify('Bạn nhập chưa chọn danh mục','error',{ position:"right" });
                     document.getElementById('category_id').scrollIntoView();{{--sử dụng scrollIntoView để trỏ đến khu bị lỗi--}}
