@@ -152,7 +152,7 @@ class HomeController extends Controller
 //            ->latest() // lấy dữ liệu mới nhất
 //            ->paginate(10); // phân trang (1 trang chứa 15 phần tử)
 
-        $list_products = $query->paginate(16);
+        $list_products = $query->paginate(9); // phân trang  (1 trang product list chi chứa 9 san pham)
 
 
 
@@ -189,7 +189,7 @@ class HomeController extends Controller
 
     public function articles(){
 
-        $articles = Articles::latest()->paginate(3);
+        $articles = Articles::latest()->paginate(6);
 
         return view('frontend.articleList',['articles'=>$articles]);
     }

@@ -133,7 +133,7 @@
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div class=" pt-30 pb-30">
-                                        {!! $products->links()!!}
+                                        {!! $products->links('vendor.pagination.custom')!!}
                                     </div>
                                 </div>
                             </div>
