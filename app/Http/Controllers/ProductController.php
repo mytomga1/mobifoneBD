@@ -231,6 +231,9 @@ class ProductController extends Controller
 
         if($request->hasFile('image')){// kiểm tra file ảnh có tồn tại ko
 
+            // Sử Dụng Hàm unlink() để xoá file ảnh củ khi thực hiện upload ảnh mới
+            @unlink(public_path($product->image));
+
             // get file - tạo ra 1 biến file đại diện cho file ảnh dc up lên
             $file = $request->file('image');
 

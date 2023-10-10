@@ -241,21 +241,11 @@
                     document.getElementById('name').scrollIntoView();
                     return false;
                 }
-                // if ($('#stock').val() === '') {
-                //     $('#stock').notify('Bạn nhập chưa nhập số lượng','error');
-                //     document.getElementById('stock').scrollIntoView();
-                //     return false;
-                // }
                 if ($('#price').val() === '') {
                     $('#price').notify('Bạn nhập chưa nhập giá','error');
                     document.getElementById('price').scrollIntoView();
                     return false;
                 }
-                // if ($('#sale').val() === '') {
-                //     $('#sale').notify('Bạn nhập chưa nhập giảm giá','error');
-                //     document.getElementById('sale').scrollIntoView();
-                //     return false;
-                // }
                 if ($('#category_id').val() === '0') {
                     $('#category_id').notify('Bạn nhập chưa chọn danh mục','error',{ position:"right" });
                     document.getElementById('category_id').scrollIntoView();{{--sử dụng scrollIntoView để trỏ đến khu bị lỗi--}}
@@ -266,11 +256,6 @@
                     document.getElementById('category_id').scrollIntoView();{{--sử dụng scrollIntoView để trỏ đến khu bị lỗi--}}
                         return false;
                 }
-                // if ($('#brand_id').val() === '0') {
-                //     $('#brand_id').notify('Bạn nhập chưa chọn thương hiệu','error');
-                //     document.getElementById('vendor_id').scrollIntoView();
-                //     return false;
-                // }
                 var summary = CKEDITOR.instances['summary'].getData();
                 if (summary === '') {
                     $('#label-summary').notify('Bạn nhập chưa nhập tóm tắt','error',{ position:"right" });
