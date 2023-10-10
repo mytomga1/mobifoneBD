@@ -119,7 +119,7 @@
 
                             <div class="form-group">
                                 <label for="position">Vị trí</label>
-                                <input min="0" type="number" class="form-control" id="position" name="position" placeholder="">
+                                <input min="0" value="0" type="number" class="form-control" id="position" name="position" placeholder="">
                             </div>
 
                             <div class="checkbox">

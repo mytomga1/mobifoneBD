@@ -11,7 +11,7 @@
                     </div>
                 </div>
                 <div class="col-xl-5 col-lg-4 d-none d-lg-block">
-                    <div class="header__search">
+                    <div class="header__search" hidden="">
                         <form action="#">
                             <div class="header__search-box">
                                 <input class="search-input" type="text" placeholder="Bạn muốn tìm sản phẩm nào ...">

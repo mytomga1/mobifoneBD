@@ -57,16 +57,17 @@
                                                                            @else
                                                                               {{ asset('frontend\img\product\tp-2.jpg') }}
                                                                            @endif
-                                                                " width="237px" height="237px" alt="product">
+                                                                " width="280px" height="280px" alt="product">
                                                             </a>
                                                         </div>
+                                                        <p></p>
                                                         <div class="product__offer">
                                                             <span class="discount">{{ !empty($product->category->name) ? $product->category->name : '' }}</span>
 
                                                         </div>
                                                     </div>
                                                     <div class="product__content">
-                                                        <h5><a href="product-details.html">{{ $product->name }}</a></h5>
+                                                        <h5 style="color: red"><a href="{{ route('product', ['product' => $product->slug]) }}">{{ $product->name }} </a></h5>
                                                         <div class="price">
                                                             @if($product->price > 0)
                                                                 <span>{{ number_format($product->price,0,",",".") }} đ</span>
@@ -76,7 +77,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product__add-cart text-center">
-                                                        <button type="button" class="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
+                                                        <button type="button" href="{{ route('product', ['product' => $product->slug]) }}" class="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
                                                             Chi Tiết
                                                         </button>
                                                     </div>

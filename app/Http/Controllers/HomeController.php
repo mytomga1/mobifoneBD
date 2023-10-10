@@ -62,7 +62,8 @@ class HomeController extends Controller
     }
     public function index(){
         // khu vuc show sp cua Top Featured Products
-        $allProduct = Product::where('is_active', 1)->where('deleted_at', null)->limit(5)->orderBy('id', 'desc')->get();
+        //$allProduct = Product::where('is_active', 1)->where('deleted_at', null)->limit(5)->orderBy('id', 'desc')->get();
+        $allProduct = Product::where('is_active', 1)->where('deleted_at', null)->limit(5)->orderBy('name')->get();
 
         $list = []; // chứa danh sách sản phẩm  theo danh mục
 

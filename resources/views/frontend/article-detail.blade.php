@@ -2,34 +2,34 @@
 
 @section('content')
     <!-- page-banner-area-start -->
-    <div class="page-banner-area page-banner-height-2" data-background="{{asset('frontend')}}/img/banner/page-banner-4.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="page-banner-content text-center">
-                        <h4 class="breadcrumb-title">BLOG DETAIL</h4>
-                        <div class="breadcrumb-two">
-                            <nav>
-                                <nav class="breadcrumb-trail breadcrumbs">
-                                    <ul class="breadcrumb-menu">
-                                        <li class="breadcrumb-trail">
-                                            <a href="{{route('index')}}"><span>Trang chủ</span></a>
-                                        </li>
-                                        <li class="breadcrumb-trail">
-                                            <a href="{{route('articles')}}"><span>Blog</span></a>
-                                        </li>
-                                        <li class="trail-item">
-                                            <span>Blog Detail</span>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{--    <div class="page-banner-area page-banner-height-2" data-background="{{asset('frontend')}}/img/banner/page-banner-4.jpg">--}}
+    {{--        <div class="container">--}}
+    {{--            <div class="row">--}}
+    {{--                <div class="col-xl-12">--}}
+    {{--                    <div class="page-banner-content text-center">--}}
+    {{--                        <h4 class="breadcrumb-title">BLOG DETAIL</h4>--}}
+    {{--                        <div class="breadcrumb-two">--}}
+    {{--                            <nav>--}}
+    {{--                                <nav class="breadcrumb-trail breadcrumbs">--}}
+    {{--                                    <ul class="breadcrumb-menu">--}}
+    {{--                                        <li class="breadcrumb-trail">--}}
+    {{--                                            <a href="{{route('index')}}"><span>Trang chủ</span></a>--}}
+    {{--                                        </li>--}}
+    {{--                                        <li class="breadcrumb-trail">--}}
+    {{--                                            <a href="{{route('articles')}}"><span>Blog</span></a>--}}
+    {{--                                        </li>--}}
+    {{--                                        <li class="trail-item">--}}
+    {{--                                            <span>Blog Detail</span>--}}
+    {{--                                        </li>--}}
+    {{--                                    </ul>--}}
+    {{--                                </nav>--}}
+    {{--                            </nav>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
     <!-- page-banner-area-end -->
 
     <!-- news-detalis-area-start -->
@@ -37,7 +37,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
-                    <h3 style="color: red">{{$article->title}}</h3><br/>
+{{--                    <h3 style="color: red">{{$article->title}}</h3><br/>--}}
 
                     <div class="news-detalis-content mb-50">
                         <ul class="blog-meta mb-20">

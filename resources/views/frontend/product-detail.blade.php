@@ -41,7 +41,7 @@
                                                                             @else
                                                                                 {{ asset('frontend\Img404.png') }}
                                                                             @endif
-                                                                " width="600px" height="600px" title="{{$product->name}}">
+                                                                " width="500px" height="500px" title="{{$product->name}}">
                                         </div>
                                     </div>
                                 </div>
