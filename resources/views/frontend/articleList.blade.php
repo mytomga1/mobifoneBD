@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="page-banner-content text-center">
-                            <h4 class="breadcrumb-title">BLOG</h4>
+                            <h4 class="breadcrumb-title">KHUYẾN MÃI</h4>
                             <div class="breadcrumb-two">
                                 <nav>
                                     <nav class="breadcrumb-trail breadcrumbs">
@@ -17,7 +17,7 @@
                                                 <a href="{{route('index')}}"><span>Trang chủ</span></a>
                                             </li>
                                             <li class="trail-item">
-                                                <span>Blog</span>
+                                                <span>Khuyến Mãi</span>
                                             </li>
                                         </ul>
                                     </nav>

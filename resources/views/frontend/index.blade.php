@@ -106,7 +106,7 @@
                     <div class="inner">
                         <p class="item">Miễn Phí Lắp Đặt Tặng thiết bị Router wifi tốc độ cao</p>
                         <p class="item">Tặng nay 4 tháng cước khi đăng ký gói 12 tháng và 2 tháng khi đăng ký gói 6 tháng</p>
-                        <p class="item">Liên hệ tư vấn nhanh chóng thông qua số 0901600668 & 18001090 (miễn phí)</p>
+                        <p class="item">Liên hệ tư vấn nhanh chóng thông qua số 0901600668 & 0785050050 (miễn phí)</p>
                     </div>
                 </div>
             </div>
